@@ -56,19 +56,10 @@ public:
     }
 };
 
-class ColorPallete
+class Color
 {
 public:
-    u_char Blue;
-    u_char Green;
-    u_char Red;
-    u_char Reserved;
-};
-
-class Pixel
-{
-public:
-    u_char pixel[4];
+    u_char value[4];
 };
 
 class Bitmap
@@ -77,13 +68,14 @@ public:
     string fileName;
     int width;
     int height;
-    Pixel **bitmapArray;
     Bitmap(std::string fileName);
+    Color *getPixelAtPosition(int l, int c);
 
 private:
     FileHeader *fileHeader;
     BitmapHeader *bitmapHeader;
-    ColorPallete **colorPallete;
+    Color **colorPallete;
+    Color **bitmapArray;
     bool colorPalleteExists;
 
     void openFile(string filename, fstream &file);
@@ -92,7 +84,7 @@ private:
     bool checkColorPallete(fstream &file);
     void loadColorPallete(fstream &file);
     void loadImage(fstream &file);
-    Pixel *getPixelFromPallete(u_char pixelValue);
+    Color *getPixelFromPallete(u_char pixelValue);
 };
 
 Bitmap::Bitmap(string fileName)
@@ -156,25 +148,25 @@ bool Bitmap::checkColorPallete(fstream &file)
 void Bitmap::loadColorPallete(fstream &file)
 {
     int palleteCount = pow(2, bitmapHeader->BiBitCount);
-    colorPallete = (ColorPallete **)malloc(sizeof(ColorPallete *) * palleteCount);
+    colorPallete = (Color **)malloc(sizeof(Color *) * palleteCount);
 
     for (int i = 0; i < palleteCount; i++)
     {
-        colorPallete[i] = new ColorPallete();
-        file.read(reinterpret_cast<char *>(&colorPallete[i]->Blue), 1);
-        file.read(reinterpret_cast<char *>(&colorPallete[i]->Green), 1);
-        file.read(reinterpret_cast<char *>(&colorPallete[i]->Red), 1);
-        file.read(reinterpret_cast<char *>(&colorPallete[i]->Reserved), 1);
+        colorPallete[i] = new Color();
+        file.read(reinterpret_cast<char *>(&colorPallete[i]->value[2]), 1);
+        file.read(reinterpret_cast<char *>(&colorPallete[i]->value[1]), 1);
+        file.read(reinterpret_cast<char *>(&colorPallete[i]->value[0]), 1);
+        file.read(reinterpret_cast<char *>(&colorPallete[i]->value[3]), 1);
     }
 }
 
-Pixel *Bitmap::getPixelFromPallete(u_char pixelValue)
+Color *Bitmap::getPixelFromPallete(u_char pixelValue)
 {
-    Pixel *p = new Pixel();
-    p->pixel[0] = colorPallete[pixelValue]->Red;
-    p->pixel[1] = colorPallete[pixelValue]->Green;
-    p->pixel[2] = colorPallete[pixelValue]->Blue;
-    p->pixel[3] = colorPallete[pixelValue]->Reserved;
+    Color *p = new Color();
+    p->value[0] = colorPallete[pixelValue]->value[0];
+    p->value[1] = colorPallete[pixelValue]->value[2];
+    p->value[2] = colorPallete[pixelValue]->value[3];
+    p->value[3] = colorPallete[pixelValue]->value[4];
     return p;
 }
 void Bitmap::loadImage(fstream &file)
@@ -185,7 +177,7 @@ void Bitmap::loadImage(fstream &file)
     int bitmapSize = bitmapHeader->BiWidth * bitmapHeader->BiHeight;
     char *byteArray = (char *)malloc(rowSize);
 
-    bitmapArray = (Pixel **)malloc(bitmapSize * sizeof(Pixel *));
+    bitmapArray = (Color **)malloc(bitmapSize * sizeof(Color *));
 
     cout << "Bitmap size:" << bitmapSize << endl;
     cout << "Row Size:" << rowSize << endl;
@@ -237,24 +229,30 @@ void Bitmap::loadImage(fstream &file)
 
             for (int i = 0, j = 0; i <= rowSize - padding; i += (int)(bitmapHeader->BiBitCount / 8), j++)
             {
-                Pixel *p = new Pixel();
+                Color *p = new Color();
                 if (bitmapHeader->BiBitCount == 24)
                 {
-                    p->pixel[0] = byteArray[i + 2];
-                    p->pixel[1] = byteArray[i + 1];
-                    p->pixel[2] = byteArray[i + 0];
+                    p->value[0] = byteArray[i + 2];
+                    p->value[1] = byteArray[i + 1];
+                    p->value[2] = byteArray[i + 0];
                 }
                 else
                 {
-                    p->pixel[0] = byteArray[i + 2];
-                    p->pixel[1] = byteArray[i + 1];
-                    p->pixel[2] = byteArray[i + 0];
-                    p->pixel[3] = byteArray[i + 3];
+                    p->value[0] = byteArray[i + 2];
+                    p->value[1] = byteArray[i + 1];
+                    p->value[2] = byteArray[i + 0];
+                    p->value[3] = byteArray[i + 3];
                 }
 
                 bitmapArray[l * bitmapHeader->BiWidth + j] = p;
             }
         }
     }
+}
+
+Color *Bitmap::getPixelAtPosition(int l, int c)
+{
+    int idx = (height - 1 - l) * width + c;
+    return bitmapArray[idx];
 }
 #endif
