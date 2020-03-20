@@ -159,7 +159,7 @@
 1426372440 /home/menegais1/Documents/Projects/ComputerGraphics/Study/BitmapReader/include/GL/freeglut_ext.h
 	<stdarg.h>
 
-1584721255 source:/home/menegais1/Documents/Projects/ComputerGraphics/Study/BitmapReader/src/main.cpp
+1584730441 source:/home/menegais1/Documents/Projects/ComputerGraphics/Study/BitmapReader/src/main.cpp
 	<GL/glut.h>
 	<GL/freeglut_ext.h>
 	<string>
@@ -167,7 +167,7 @@
 	"gl_canvas2d.h"
 	"Bitmap.h"
 
-1584729015 /home/menegais1/Documents/Projects/ComputerGraphics/Study/BitmapReader/src/Bitmap.h
+1584730654 /home/menegais1/Documents/Projects/ComputerGraphics/Study/BitmapReader/src/Bitmap.h
 	<string>
 	<fstream>
 	<iostream>

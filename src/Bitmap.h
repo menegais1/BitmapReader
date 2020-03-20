@@ -80,6 +80,7 @@ public:
     void flipImageInX();
     void flipImageInY();
     void rotateImage(float angle);
+    void convertImageToGrayScale();
 
 private:
     FileHeader *fileHeader;
@@ -182,14 +183,14 @@ Color *Bitmap::getPixelFromPallete(u_char pixelValue)
 {
     Color *p = new Color();
     p->value[0] = colorPallete[pixelValue]->value[0];
-    p->value[1] = colorPallete[pixelValue]->value[2];
-    p->value[2] = colorPallete[pixelValue]->value[3];
-    p->value[3] = colorPallete[pixelValue]->value[4];
+    p->value[1] = colorPallete[pixelValue]->value[1];
+    p->value[2] = colorPallete[pixelValue]->value[2];
+    p->value[3] = colorPallete[pixelValue]->value[3];
     return p;
 }
+
 void Bitmap::loadImage(fstream &file)
 {
-    //file.seekg(fileHeader->BfOffSetBits, ios::beg);
     int rowSize = ceil((bitmapHeader->BiBitCount * bitmapHeader->BiWidth) / 32) * 4;
     int padding = rowSize - (bitmapHeader->BiBitCount / 8 * bitmapHeader->BiWidth);
     int bitmapSize = bitmapHeader->BiWidth * bitmapHeader->BiHeight;
@@ -316,5 +317,24 @@ void Bitmap::flipImageInY()
 void Bitmap::rotateImage(float angle)
 {
     this->imageRotation += angle;
+}
+
+void Bitmap::convertImageToGrayScale()
+{
+    for (int l = 0; l < height; l++)
+    {
+        for (int c = 0; c < width; c++)
+        {
+            int idx = (height - 1 - l) * width + c;
+
+            float grayScaleColor = bitmapArray[idx]->value[0] * 0.299 + bitmapArray[idx]->value[1] * 0.587 + bitmapArray[idx]->value[2] * 0.114;
+            Color *color = new Color();
+            color->value[0] = grayScaleColor;
+            color->value[1] = grayScaleColor;
+            color->value[2] = grayScaleColor;
+            color->value[3] = grayScaleColor;
+            bitmapArray[idx] = color;
+        }
+    }
 }
 #endif

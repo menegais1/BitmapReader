@@ -17,8 +17,6 @@ void render()
    {
       for (int c = 0; c < bitmap->width; c++)
       {
-         bitmap->rotateImage(0.00001);
-
          Color *rgba = bitmap->getPixelColorAtPosition(l, c);
          Int2 pos = bitmap->getPixelPositionOnScreen(l, c);
          //Default image
@@ -42,7 +40,7 @@ void render()
          // color(0,
          //       0,
          //       (float)rgba->value[2] / 255);
-         point(c + 50 + bitmap->width * 3 + 5, l + 50);
+         //point(c + 50 + bitmap->width * 3 + 5, l + 50);
 
          // cout << "R " << bitmap->bitmapArray[idx]->pixel[0] << " B " << bitmap->bitmapArray[idx]->pixel[1] << " G " << bitmap->bitmapArray[idx]->pixel[2];
       }
@@ -68,7 +66,7 @@ int main(void)
 {
    initCanvas(&screenWidth, &screenHeight, "Bitmap reader");
 
-   bitmap = new Bitmap("/home/menegais1/Documents/Projects/ComputerGraphics/Study/BitmapReader/src/test.bmp");
-   bitmap->rotateImage(3.14);
+   bitmap = new Bitmap("/home/menegais1/Documents/Projects/ComputerGraphics/Study/BitmapReader/src/test_boy.bmp");
+ //  bitmap->convertImageToGrayScale();
    runCanvas();
 }
