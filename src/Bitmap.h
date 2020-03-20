@@ -89,6 +89,7 @@ private:
     bool colorPalleteExists;
     float imageRotation;
     void openFile(string filename, fstream &file);
+    void closeFile(fstream &file);
     void loadFileHeader(fstream &file);
     void loadBitmapHeader(fstream &file);
     bool checkColorPallete(fstream &file);
@@ -114,7 +115,7 @@ Bitmap::Bitmap(string fileName)
         loadColorPallete(file);
     }
     loadImage(file);
-
+    closeFile(file);
     width = bitmapHeader->BiWidth;
     height = bitmapHeader->BiHeight;
 }
@@ -122,6 +123,11 @@ Bitmap::Bitmap(string fileName)
 void Bitmap::openFile(string filename, fstream &file)
 {
     file.open(filename, fstream::in | fstream::binary);
+}
+
+void Bitmap::closeFile(fstream &file)
+{
+    file.close();
 }
 
 void Bitmap::loadFileHeader(fstream &file)
@@ -160,7 +166,7 @@ bool Bitmap::checkColorPallete(fstream &file)
 void Bitmap::loadColorPallete(fstream &file)
 {
     int palleteCount = pow(2, bitmapHeader->BiBitCount);
-    colorPallete = (Color **)malloc(sizeof(Color *) * palleteCount);
+    colorPallete = new Color *[palleteCount];
 
     for (int i = 0; i < palleteCount; i++)
     {
@@ -187,9 +193,9 @@ void Bitmap::loadImage(fstream &file)
     int rowSize = ceil((bitmapHeader->BiBitCount * bitmapHeader->BiWidth) / 32) * 4;
     int padding = rowSize - (bitmapHeader->BiBitCount / 8 * bitmapHeader->BiWidth);
     int bitmapSize = bitmapHeader->BiWidth * bitmapHeader->BiHeight;
-    char *byteArray = (char *)malloc(rowSize);
+    char *byteArray = new char[rowSize];
 
-    bitmapArray = (Color **)malloc(bitmapSize * sizeof(Color *));
+    bitmapArray = new Color *[bitmapSize];
 
     cout << "Bitmap size:" << bitmapSize << endl;
     cout << "Row Size:" << rowSize << endl;
