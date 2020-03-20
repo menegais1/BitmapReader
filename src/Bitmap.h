@@ -81,6 +81,7 @@ public:
     void flipImageInY();
     void rotateImage(float angle);
     void convertImageToGrayScale();
+    void scaleImage(float scale);
 
 private:
     FileHeader *fileHeader;
@@ -279,9 +280,33 @@ Color *Bitmap::getPixelColorAtPosition(int l, int c)
 Int2 Bitmap::getPixelPositionOnScreen(int l, int c)
 {
     int newC = (c * cos(imageRotation) + l * sin(imageRotation));
-    int newL = (-c * sin(imageRotation)) + l * cos(imageRotation);
+    int newL = ((-c * sin(imageRotation)) + l * cos(imageRotation));
     Int2 pos = {newC, newL};
     return pos;
+}
+
+void Bitmap::scaleImage(float scale)
+{
+    int oldHeight = this->height;
+    int oldWidth = this->width;
+    this->height = oldHeight * scale;
+    this->width = oldWidth * scale;
+    Color **newBitmapArray = new Color *[height * width];
+    for (int l = 0; l < height; l++)
+    {
+        for (int c = 0; c < width; c++)
+        {
+            int oldL = floor(l * (1 / scale));
+            int oldC = floor(c * (1 / scale));
+            int oldIdx = (oldHeight - 1 - oldL) * oldWidth + oldC;
+            Color *color = bitmapArray[oldIdx];
+
+            int idx = (height - 1 - l) * width + c;
+            newBitmapArray[idx] = color;
+        }
+    }
+    delete[] bitmapArray;
+    bitmapArray = newBitmapArray;
 }
 
 void Bitmap::flipImageInX()
