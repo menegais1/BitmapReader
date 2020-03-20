@@ -13,17 +13,20 @@ Bitmap *bitmap;
 void render()
 {
 
-   
    for (int l = 0; l < bitmap->height; l++)
    {
       for (int c = 0; c < bitmap->width; c++)
       {
-         Color* rgba= bitmap->getPixelAtPosition(l,c);
+         bitmap->rotateImage(0.00001);
+
+         Color *rgba = bitmap->getPixelColorAtPosition(l, c);
+         Int2 pos = bitmap->getPixelPositionOnScreen(l, c);
          //Default image
          color((float)rgba->value[0] / 255,
                (float)rgba->value[1] / 255,
                (float)rgba->value[2] / 255);
-         point(c + 50, l + 50);
+
+         point(pos.x + 100, pos.y + 100);
 
          // //Red channel image
          // color((float)rgba->value[0] / 255,
@@ -39,7 +42,7 @@ void render()
          // color(0,
          //       0,
          //       (float)rgba->value[2] / 255);
-         // point(c + 50 + bitmap->width * 3 + 5, l + 50);
+         point(c + 50 + bitmap->width * 3 + 5, l + 50);
 
          // cout << "R " << bitmap->bitmapArray[idx]->pixel[0] << " B " << bitmap->bitmapArray[idx]->pixel[1] << " G " << bitmap->bitmapArray[idx]->pixel[2];
       }
@@ -66,8 +69,6 @@ int main(void)
    initCanvas(&screenWidth, &screenHeight, "Bitmap reader");
 
    bitmap = new Bitmap("/home/menegais1/Documents/Projects/ComputerGraphics/Study/BitmapReader/src/test.bmp");
-   int tmp = bitmap->width ;
-   bitmap->width = bitmap->height;
-   bitmap->height= tmp;
+   bitmap->rotateImage(3.14);
    runCanvas();
 }

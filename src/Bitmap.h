@@ -62,6 +62,12 @@ public:
     u_char value[4];
 };
 
+typedef struct int2
+{
+    int x;
+    int y;
+} Int2;
+
 class Bitmap
 {
 public:
@@ -69,19 +75,19 @@ public:
     int width;
     int height;
     Bitmap(std::string fileName);
-    Color *getPixelAtPosition(int l, int c);
-    Color *getPixelAtPositionFlipped(int l, int c);
+    Color *getPixelColorAtPosition(int l, int c);
+    Int2 getPixelPositionOnScreen(int l, int c);
     void flipImageInX();
     void flipImageInY();
-    void rotateImage();
-    
+    void rotateImage(float angle);
+
 private:
     FileHeader *fileHeader;
     BitmapHeader *bitmapHeader;
     Color **colorPallete;
     Color **bitmapArray;
     bool colorPalleteExists;
-
+    float imageRotation;
     void openFile(string filename, fstream &file);
     void loadFileHeader(fstream &file);
     void loadBitmapHeader(fstream &file);
@@ -89,11 +95,13 @@ private:
     void loadColorPallete(fstream &file);
     void loadImage(fstream &file);
     Color *getPixelFromPallete(u_char pixelValue);
+    Bitmap(int width, int height);
 };
 
 Bitmap::Bitmap(string fileName)
 {
     this->fileName = fileName;
+    this->imageRotation = 0;
     fstream file;
     openFile(fileName, file);
     if (!file.is_open())
@@ -254,10 +262,19 @@ void Bitmap::loadImage(fstream &file)
     }
 }
 
-Color *Bitmap::getPixelAtPosition(int l, int c)
+Color *Bitmap::getPixelColorAtPosition(int l, int c)
 {
+
     int idx = (height - 1 - l) * width + c;
     return bitmapArray[idx];
+}
+
+Int2 Bitmap::getPixelPositionOnScreen(int l, int c)
+{
+    int newC = (c * cos(imageRotation) + l * sin(imageRotation));
+    int newL = (-c * sin(imageRotation)) + l * cos(imageRotation);
+    Int2 pos = {newC, newL};
+    return pos;
 }
 
 void Bitmap::flipImageInX()
@@ -268,7 +285,7 @@ void Bitmap::flipImageInX()
         {
             int newIdx = (height - 1 - l) * width + (width - c);
             int idx = (height - 1 - l) * width + c;
-            Color* tmp = bitmapArray[idx];
+            Color *tmp = bitmapArray[idx];
             bitmapArray[idx] = bitmapArray[newIdx];
             bitmapArray[newIdx] = tmp;
         }
@@ -283,10 +300,15 @@ void Bitmap::flipImageInY()
         {
             int newIdx = l * width + c;
             int idx = (height - 1 - l) * width + c;
-            Color* tmp = bitmapArray[idx];
+            Color *tmp = bitmapArray[idx];
             bitmapArray[idx] = bitmapArray[newIdx];
             bitmapArray[newIdx] = tmp;
         }
     }
+}
+
+void Bitmap::rotateImage(float angle)
+{
+    this->imageRotation += angle;
 }
 #endif
