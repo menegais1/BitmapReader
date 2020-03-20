@@ -13,6 +13,7 @@ Bitmap *bitmap;
 void render()
 {
 
+   
    for (int l = 0; l < bitmap->height; l++)
    {
       for (int c = 0; c < bitmap->width; c++)
@@ -24,21 +25,21 @@ void render()
                (float)rgba->value[2] / 255);
          point(c + 50, l + 50);
 
-         //Red channel image
-         color((float)rgba->value[0] / 255,
-               0,
-               0);
-         point(c + 50 + bitmap->width + 5, l + 50);
-         //Green channel image
-         color(0,
-               (float)rgba->value[1] / 255,
-               0);
-         point(c + 50 + bitmap->width * 2 + 5, l + 50);
-         //Blue channel image
-         color(0,
-               0,
-               (float)rgba->value[2] / 255);
-         point(c + 50 + bitmap->width * 3 + 5, l + 50);
+         // //Red channel image
+         // color((float)rgba->value[0] / 255,
+         //       0,
+         //       0);
+         // point(c + 50 + bitmap->width + 5, l + 50);
+         // //Green channel image
+         // color(0,
+         //       (float)rgba->value[1] / 255,
+         //       0);
+         // point(c + 50 + bitmap->width * 2 + 5, l + 50);
+         // //Blue channel image
+         // color(0,
+         //       0,
+         //       (float)rgba->value[2] / 255);
+         // point(c + 50 + bitmap->width * 3 + 5, l + 50);
 
          // cout << "R " << bitmap->bitmapArray[idx]->pixel[0] << " B " << bitmap->bitmapArray[idx]->pixel[1] << " G " << bitmap->bitmapArray[idx]->pixel[2];
       }
@@ -65,6 +66,8 @@ int main(void)
    initCanvas(&screenWidth, &screenHeight, "Bitmap reader");
 
    bitmap = new Bitmap("/home/menegais1/Documents/Projects/ComputerGraphics/Study/BitmapReader/src/test.bmp");
-
+   int tmp = bitmap->width ;
+   bitmap->width = bitmap->height;
+   bitmap->height= tmp;
    runCanvas();
 }

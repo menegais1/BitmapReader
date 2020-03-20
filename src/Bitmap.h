@@ -70,7 +70,11 @@ public:
     int height;
     Bitmap(std::string fileName);
     Color *getPixelAtPosition(int l, int c);
-
+    Color *getPixelAtPositionFlipped(int l, int c);
+    void flipImageInX();
+    void flipImageInY();
+    void rotateImage();
+    
 private:
     FileHeader *fileHeader;
     BitmapHeader *bitmapHeader;
@@ -254,5 +258,35 @@ Color *Bitmap::getPixelAtPosition(int l, int c)
 {
     int idx = (height - 1 - l) * width + c;
     return bitmapArray[idx];
+}
+
+void Bitmap::flipImageInX()
+{
+    for (int l = 0; l < height; l++)
+    {
+        for (int c = 0; c < width / 2; c++)
+        {
+            int newIdx = (height - 1 - l) * width + (width - c);
+            int idx = (height - 1 - l) * width + c;
+            Color* tmp = bitmapArray[idx];
+            bitmapArray[idx] = bitmapArray[newIdx];
+            bitmapArray[newIdx] = tmp;
+        }
+    }
+}
+
+void Bitmap::flipImageInY()
+{
+    for (int l = 0; l < height / 2; l++)
+    {
+        for (int c = 0; c < width; c++)
+        {
+            int newIdx = l * width + c;
+            int idx = (height - 1 - l) * width + c;
+            Color* tmp = bitmapArray[idx];
+            bitmapArray[idx] = bitmapArray[newIdx];
+            bitmapArray[newIdx] = tmp;
+        }
+    }
 }
 #endif
