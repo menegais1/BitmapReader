@@ -56,6 +56,14 @@ public:
     }
 };
 
+enum Channel
+{
+    Red = 0,
+    Green = 1,
+    Blue = 2,
+    Alpha = 3
+};
+
 class Color
 {
 public:
@@ -82,6 +90,7 @@ public:
     void rotateImage(float angle);
     void convertImageToGrayScale();
     void scaleImage(float scale);
+    int *getHistogramForChannel(Channel c);
 
 private:
     FileHeader *fileHeader;
@@ -357,9 +366,22 @@ void Bitmap::convertImageToGrayScale()
             color->value[0] = grayScaleColor;
             color->value[1] = grayScaleColor;
             color->value[2] = grayScaleColor;
-            color->value[3] = grayScaleColor;
             bitmapArray[idx] = color;
         }
     }
+}
+
+int *Bitmap::getHistogramForChannel(Channel c)
+{
+    int *histogram = new int[256];
+    for (int i = 0; i < 256; i++)
+    {
+        histogram[i] = 0;
+    }
+    for (int i = 0; i < width * height; i++)
+    {
+        histogram[(int)bitmapArray[i]->value[c]] += 1;
+    }
+    return histogram;
 }
 #endif

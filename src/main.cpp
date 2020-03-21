@@ -72,7 +72,16 @@ int main(void)
 
    bitmap = new Bitmap("/home/menegais1/Documents/Projects/ComputerGraphics/Study/BitmapReader/src/test.bmp");
 
-   bitmap->scaleImage(2);
-   bitmap->convertImageToGrayScale();
+   // bitmap->scaleImage(2);
+   // bitmap->convertImageToGrayScale();
+
+   int *red = bitmap->getHistogramForChannel(Channel::Red);
+   int *green = bitmap->getHistogramForChannel(Channel::Green);
+   int *blue = bitmap->getHistogramForChannel(Channel::Blue);
+   for (int i = 0; i < 256; i++)
+   {
+      cout << i << " R " << red[i] << " G " << green[i] << " B " << blue[i] << endl;
+   }
+
    runCanvas();
 }
