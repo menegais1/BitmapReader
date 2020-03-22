@@ -159,16 +159,50 @@
 1426372440 /home/menegais1/Documents/Projects/ComputerGraphics/Study/BitmapReader/include/GL/freeglut_ext.h
 	<stdarg.h>
 
-1584764379 source:/home/menegais1/Documents/Projects/ComputerGraphics/Study/BitmapReader/src/main.cpp
+1584912183 source:/home/menegais1/Documents/Projects/ComputerGraphics/Study/BitmapReader/src/main.cpp
 	<GL/glut.h>
 	<GL/freeglut_ext.h>
 	<string>
 	<iostream>
 	"gl_canvas2d.h"
 	"Bitmap.h"
+	"Utilities.h"
+	"BitmapRenderer.h"
+	"RenderManager.h"
 
-1584764599 /home/menegais1/Documents/Projects/ComputerGraphics/Study/BitmapReader/src/Bitmap.h
+1584909448 /home/menegais1/Documents/Projects/ComputerGraphics/Study/BitmapReader/src/Bitmap.h
 	<string>
 	<fstream>
 	<iostream>
+	"Utilities.h"
+
+1584801836 /home/menegais1/Documents/Projects/ComputerGraphics/Study/BitmapReader/src/Utilities.h
+
+1584909476 source:/home/menegais1/Documents/Projects/ComputerGraphics/Study/BitmapReader/src/Bitmap.cpp
+	"Bitmap.h"
+	<string>
+	<fstream>
+	<iostream>
+	<cmath>
+	"Utilities.h"
+
+1584911837 /home/menegais1/Documents/Projects/ComputerGraphics/Study/BitmapReader/src/BitmapRenderer.h
+	"IRender.h"
+	"Bitmap.h"
+	"Utilities.h"
+
+1584907999 /home/menegais1/Documents/Projects/ComputerGraphics/Study/BitmapReader/src/IRender.h
+
+1584911896 source:/home/menegais1/Documents/Projects/ComputerGraphics/Study/BitmapReader/src/BitmapRenderer.cpp
+	"BitmapRenderer.h"
+	"gl_canvas2d.h"
+
+1584911748 source:/home/menegais1/Documents/Projects/ComputerGraphics/Study/BitmapReader/src/RenderManager.cpp
+	"RenderManager.h"
+	<vector>
+	<iostream>
+
+1584910890 /home/menegais1/Documents/Projects/ComputerGraphics/Study/BitmapReader/src/RenderManager.h
+	"IRender.h"
+	<vector>
 

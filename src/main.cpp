@@ -5,50 +5,17 @@
 
 #include "gl_canvas2d.h"
 #include "Bitmap.h"
+#include "Utilities.h"
+#include "BitmapRenderer.h"
+#include "RenderManager.h"
 
+using namespace std;
 int screenWidth = 500, screenHeight = 500;
 
-Bitmap *bitmap;
-
+RenderManager *renderManager = new RenderManager();
 void render()
 {
-
-   for (int l = 0; l < bitmap->height; l++)
-   {
-      for (int c = 0; c < bitmap->width; c++)
-      {
-
-         //  bitmap->rotateImage(0.00001);
-         Int2 pos = bitmap->getPixelPositionOnScreen(l, c);
-
-         Color *rgba = bitmap->getPixelColorAtPosition(l, c);
-
-         //Default image
-         color((float)rgba->value[0] / 255,
-               (float)rgba->value[1] / 255,
-               (float)rgba->value[2] / 255);
-
-         point(pos.x + 100, pos.y + 100);
-
-         // //Red channel image
-         // color((float)rgba->value[0] / 255,
-         //       0,
-         //       0);
-         // point(c + 50 + bitmap->width + 5, l + 50);
-         // //Green channel image
-         // color(0,
-         //       (float)rgba->value[1] / 255,
-         //       0);
-         // point(c + 50 + bitmap->width * 2 + 5, l + 50);
-         // //Blue channel image
-         // color(0,
-         //       0,
-         //       (float)rgba->value[2] / 255);
-         //point(c + 50 + bitmap->width * 3 + 5, l + 50);
-
-         // cout << "R " << bitmap->bitmapArray[idx]->pixel[0] << " B " << bitmap->bitmapArray[idx]->pixel[1] << " G " << bitmap->bitmapArray[idx]->pixel[2];
-      }
-   }
+   renderManager->render();
 }
 
 void keyboard(int key)
@@ -70,18 +37,15 @@ int main(void)
 {
    initCanvas(&screenWidth, &screenHeight, "Bitmap reader");
 
-   bitmap = new Bitmap("/home/menegais1/Documents/Projects/ComputerGraphics/Study/BitmapReader/src/test.bmp");
+   Bitmap *bitmap = new Bitmap("/home/menegais1/Documents/Projects/ComputerGraphics/Study/BitmapReader/src/test.bmp");
+   Bitmap *bitmap2 = new Bitmap("/home/menegais1/Documents/Projects/ComputerGraphics/Study/BitmapReader/src/test_1.bmp");
 
-   // bitmap->scaleImage(2);
-   // bitmap->convertImageToGrayScale();
-
-   int *red = bitmap->getHistogramForChannel(Channel::Red);
-   int *green = bitmap->getHistogramForChannel(Channel::Green);
-   int *blue = bitmap->getHistogramForChannel(Channel::Blue);
-   for (int i = 0; i < 256; i++)
-   {
-      cout << i << " R " << red[i] << " G " << green[i] << " B " << blue[i] << endl;
-   }
-
+   BitmapRenderer *bitmapRenderer1 = new BitmapRenderer(bitmap);
+   BitmapRenderer *bitmapRenderer2 = new BitmapRenderer(bitmap2);
+   bitmapRenderer2->position = {100, 100};
+   bitmapRenderer1->position = {200, 100};
+   cout << renderManager->registerRenderer(bitmapRenderer1) << endl;
+   cout << renderManager->registerRenderer(bitmapRenderer2) << endl;
+   bitmap2->flipImageInX();
    runCanvas();
 }

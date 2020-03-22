@@ -52,7 +52,14 @@
 		<Unit filename="include/GL/glut.h" />
 		<Unit filename="src/gl_canvas2d.cpp" />
 		<Unit filename="src/gl_canvas2d.h" />
+		<Unit filename="src/Utilities.h" />
 		<Unit filename="src/Bitmap.h" />
+		<Unit filename="src/IRender.h" />
+		<Unit filename="src/RenderManager.h" />
+		<Unit filename="src/RenderManager.cpp" />
+		<Unit filename="src/BitmapRenderer.h" />
+		<Unit filename="src/Bitmap.cpp" />
+		<Unit filename="src/BitmapRenderer.cpp" />
 		<Unit filename="src/main.cpp" />
 		<Extensions>
 			<code_completion />
