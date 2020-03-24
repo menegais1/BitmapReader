@@ -1,7 +1,7 @@
 #ifndef MOUSE_MANAGER_H
 #define MOUSE_MANAGER_H
 
-#include "IMouse.h"
+#include "../Base/IMouse.h"
 #include <vector>
 class MouseManager
 {

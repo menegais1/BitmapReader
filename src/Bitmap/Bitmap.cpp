@@ -3,7 +3,7 @@
 #include <fstream>
 #include <iostream>
 #include <cmath>
-#include "Utilities.h"
+#include "../Utilities.h"
 using namespace std;
 
 Bitmap::Bitmap(string fileName)

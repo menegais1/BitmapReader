@@ -1,7 +1,7 @@
 #ifndef KEYBOARD_MANAGER_H
 #define KEYBOARD_MANAGER_H
 
-#include "IKeyboard.h"
+#include "../Base/IKeyboard.h"
 #include <vector>
 class KeyboardManager
 {

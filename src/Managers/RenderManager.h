@@ -1,7 +1,7 @@
 #ifndef RENDER_MANAGER_H
 #define RENDER_MANAGER_H
 
-#include "IRender.h"
+#include "../Base/IRender.h"
 #include <vector>
 class RenderManager
 {

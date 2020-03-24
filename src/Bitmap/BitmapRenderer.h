@@ -1,11 +1,11 @@
 #ifndef BITMAP_RENDERER_H
 #define BITMAP_RENDERER_H
 
-#include "IRender.h"
-#include "IKeyboard.h"
-#include "IMouse.h"
+#include "../Base/IRender.h"
+#include "../Base/IKeyboard.h"
+#include "../Base/IMouse.h"
 #include "Bitmap.h"
-#include "Utilities.h"
+#include "../Utilities.h"
 class BitmapRenderer : public IRender, public IKeyboard, public IMouse
 {
 public:
