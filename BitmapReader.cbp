@@ -55,11 +55,14 @@
 		<Unit filename="src/Utilities.h" />
 		<Unit filename="src/Bitmap.h" />
 		<Unit filename="src/IRender.h" />
+		<Unit filename="src/IMouse.h" />
 		<Unit filename="src/IKeyboard.h" />
 		<Unit filename="src/RenderManager.h" />
 		<Unit filename="src/KeyboardManager.h" />
+		<Unit filename="src/MouseManager.h" />
 		<Unit filename="src/RenderManager.cpp" />
 		<Unit filename="src/KeyboardManager.cpp" />
+		<Unit filename="src/MouseManager.cpp" />
 		<Unit filename="src/BitmapRenderer.h" />
 		<Unit filename="src/Bitmap.cpp" />
 		<Unit filename="src/BitmapRenderer.cpp" />

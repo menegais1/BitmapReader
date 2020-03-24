@@ -34,3 +34,8 @@ BitmapRenderer::BitmapRenderer(Bitmap *bitmap)
 {
     this->bitmap = bitmap;
 }
+
+void BitmapRenderer::mouse(int button, int state, int wheel, int direction, int x, int y)
+{
+    std::cout << x << " " << y << std::endl;
+}

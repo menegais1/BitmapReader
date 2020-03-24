@@ -9,12 +9,14 @@
 #include "BitmapRenderer.h"
 #include "RenderManager.h"
 #include "KeyboardManager.h"
+#include "MouseManager.h"
 
 using namespace std;
 int screenWidth = 500, screenHeight = 500;
 
 RenderManager *renderManager = new RenderManager();
 KeyboardManager *keyboardManager = new KeyboardManager();
+MouseManager *mouseManager = new MouseManager();
 void render()
 {
    renderManager->render();
@@ -32,7 +34,7 @@ void keyboardUp(int key)
 
 void mouse(int button, int state, int wheel, int direction, int x, int y)
 {
-   //printf("\nmouse %d %d %d %d %d %d", button, state, wheel, direction, x, y);
+   mouseManager->mouse(button, state, wheel, direction, x, y);
 }
 
 int main(void)
@@ -49,6 +51,7 @@ int main(void)
    cout << renderManager->registerRenderer(bitmapRenderer1) << endl;
    cout << renderManager->registerRenderer(bitmapRenderer2) << endl;
    keyboardManager->registerKeyboardEvent(bitmapRenderer1);
+   mouseManager->registerMouseEvent(bitmapRenderer1);
    bitmap2->flipImageInX();
    runCanvas();
 }
