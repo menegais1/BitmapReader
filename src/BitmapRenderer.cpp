@@ -1,5 +1,6 @@
 #include "BitmapRenderer.h"
 #include "gl_canvas2d.h"
+#include <iostream>
 
 void BitmapRenderer::render()
 {
@@ -17,6 +18,16 @@ void BitmapRenderer::render()
             point(pos.x + position.x, pos.y + position.y);
         }
     }
+}
+
+void BitmapRenderer::keyboard(int key)
+{
+    std::cout << "Down: " << key << std::endl;
+}
+
+void BitmapRenderer::keyboardUp(int key)
+{
+    std::cout << "UP: " << key << std::endl;
 }
 
 BitmapRenderer::BitmapRenderer(Bitmap *bitmap)

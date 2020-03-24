@@ -2,6 +2,7 @@
 #include <vector>
 #include <iostream>
 using namespace std;
+
 RenderManager::RenderManager()
 {
     renderers = new vector<IRender*>();

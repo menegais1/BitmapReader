@@ -130,9 +130,10 @@
 	<stdio.h>
 	<stdlib.h>
 
-1584664537 source:/home/menegais1/Documents/Projects/ComputerGraphics/Study/BitmapReader/src/gl_canvas2d.cpp
+1584992508 source:/home/menegais1/Documents/Projects/ComputerGraphics/Study/BitmapReader/src/gl_canvas2d.cpp
 	"gl_canvas2d.h"
 	<GL/glut.h>
+	<iostream>
 
 1584662982 /home/menegais1/Documents/Projects/ComputerGraphics/Study/BitmapReader/src/gl_canvas2d.h
 	<stdio.h>
@@ -159,7 +160,7 @@
 1426372440 /home/menegais1/Documents/Projects/ComputerGraphics/Study/BitmapReader/include/GL/freeglut_ext.h
 	<stdarg.h>
 
-1584912183 source:/home/menegais1/Documents/Projects/ComputerGraphics/Study/BitmapReader/src/main.cpp
+1584990129 source:/home/menegais1/Documents/Projects/ComputerGraphics/Study/BitmapReader/src/main.cpp
 	<GL/glut.h>
 	<GL/freeglut_ext.h>
 	<string>
@@ -169,6 +170,7 @@
 	"Utilities.h"
 	"BitmapRenderer.h"
 	"RenderManager.h"
+	"KeyboardManager.h"
 
 1584909448 /home/menegais1/Documents/Projects/ComputerGraphics/Study/BitmapReader/src/Bitmap.h
 	<string>
@@ -186,23 +188,36 @@
 	<cmath>
 	"Utilities.h"
 
-1584911837 /home/menegais1/Documents/Projects/ComputerGraphics/Study/BitmapReader/src/BitmapRenderer.h
+1584987273 /home/menegais1/Documents/Projects/ComputerGraphics/Study/BitmapReader/src/BitmapRenderer.h
 	"IRender.h"
+	"IKeyboard.h"
 	"Bitmap.h"
 	"Utilities.h"
 
 1584907999 /home/menegais1/Documents/Projects/ComputerGraphics/Study/BitmapReader/src/IRender.h
 
-1584911896 source:/home/menegais1/Documents/Projects/ComputerGraphics/Study/BitmapReader/src/BitmapRenderer.cpp
+1584987343 source:/home/menegais1/Documents/Projects/ComputerGraphics/Study/BitmapReader/src/BitmapRenderer.cpp
 	"BitmapRenderer.h"
 	"gl_canvas2d.h"
+	<iostream>
 
-1584911748 source:/home/menegais1/Documents/Projects/ComputerGraphics/Study/BitmapReader/src/RenderManager.cpp
+1584985738 source:/home/menegais1/Documents/Projects/ComputerGraphics/Study/BitmapReader/src/RenderManager.cpp
 	"RenderManager.h"
 	<vector>
 	<iostream>
 
-1584910890 /home/menegais1/Documents/Projects/ComputerGraphics/Study/BitmapReader/src/RenderManager.h
+1584913934 /home/menegais1/Documents/Projects/ComputerGraphics/Study/BitmapReader/src/RenderManager.h
 	"IRender.h"
+	<vector>
+
+1584987194 /home/menegais1/Documents/Projects/ComputerGraphics/Study/BitmapReader/src/IKeyboard.h
+
+1584987519 source:/home/menegais1/Documents/Projects/ComputerGraphics/Study/BitmapReader/src/KeyboardManager.cpp
+	"KeyboardManager.h"
+	<vector>
+	<iostream>
+
+1584987450 /home/menegais1/Documents/Projects/ComputerGraphics/Study/BitmapReader/src/KeyboardManager.h
+	"IKeyboard.h"
 	<vector>
 

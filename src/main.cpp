@@ -8,11 +8,13 @@
 #include "Utilities.h"
 #include "BitmapRenderer.h"
 #include "RenderManager.h"
+#include "KeyboardManager.h"
 
 using namespace std;
 int screenWidth = 500, screenHeight = 500;
 
 RenderManager *renderManager = new RenderManager();
+KeyboardManager *keyboardManager = new KeyboardManager();
 void render()
 {
    renderManager->render();
@@ -20,12 +22,12 @@ void render()
 
 void keyboard(int key)
 {
-   // printf("\nTecla: %d", key);
+   keyboardManager->keyboard(key);
 }
 
 void keyboardUp(int key)
 {
-   //printf("\nLiberou: %d", key);
+   keyboardManager->keyboardUp(key);
 }
 
 void mouse(int button, int state, int wheel, int direction, int x, int y)
@@ -46,6 +48,7 @@ int main(void)
    bitmapRenderer1->position = {200, 100};
    cout << renderManager->registerRenderer(bitmapRenderer1) << endl;
    cout << renderManager->registerRenderer(bitmapRenderer2) << endl;
+   keyboardManager->registerKeyboardEvent(bitmapRenderer1);
    bitmap2->flipImageInX();
    runCanvas();
 }
