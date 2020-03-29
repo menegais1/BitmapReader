@@ -13,7 +13,7 @@ public:
     IKeyboard *unregisterKeyboardEvent(int keyboardEventId);
 
 private:
-    std::vector<IKeyboard *> *keyboardEvents;
+    std::vector<IKeyboard *> keyboardEvents;
 };
 
 #endif

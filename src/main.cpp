@@ -3,13 +3,13 @@
 #include <string>
 #include <iostream>
 
-#include "gl_canvas2d.h"
-#include "Bitmap.h"
+#include "Canvas/gl_canvas2d.h"
+#include "Bitmap/Bitmap.h"
 #include "Utilities.h"
-#include "BitmapRenderer.h"
-#include "RenderManager.h"
-#include "KeyboardManager.h"
-#include "MouseManager.h"
+#include "Bitmap/BitmapRenderer.h"
+#include "Managers/RenderManager.h"
+#include "Managers/KeyboardManager.h"
+#include "Managers/MouseManager.h"
 
 using namespace std;
 int screenWidth = 500, screenHeight = 500;

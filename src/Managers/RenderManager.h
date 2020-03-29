@@ -12,7 +12,7 @@ public:
     IRender* unregisterRenderer(int rendererId);
 
 private:
-    std::vector<IRender*>* renderers;
+    std::vector<IRender*>renderers;
 };
 
 #endif

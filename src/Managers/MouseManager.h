@@ -12,7 +12,7 @@ public:
     IMouse *unregisterMouseEvent(int MouseEventId);
 
 private:
-    std::vector<IMouse *> *mouseEvents;
+    std::vector<IMouse *> mouseEvents;
 };
 
 #endif
