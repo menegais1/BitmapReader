@@ -34,7 +34,6 @@ void keyboardUp(int key)
 
 void mouse(int button, int state, int wheel, int direction, int x, int y)
 {
-   cout << button << " " << state << " " << wheel << " " << direction << endl;
    mouseManager->mouse(button, state, wheel, direction, x, y);
 }
 
@@ -50,5 +49,7 @@ int main(void)
    Button *button = new Button({100, 100}, {100, 100}, {1, 1, 1}, "teste", {0, 0, 0});
    mouseManager->registerMouseEvent(button);
    renderManager->registerRenderer(button);
+   button->addListener([]{cout << "Hello word" << endl;});
+   button->addListener([]{cout << "Hello word 2" << endl;});
    runCanvas();
 }

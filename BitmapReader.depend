@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1585681483 source:/home/menegais1/Documents/Projects/ComputerGraphics/Study/BitmapReader/src/main.cpp
+1585682500 source:/home/menegais1/Documents/Projects/ComputerGraphics/Study/BitmapReader/src/main.cpp
 	<GL/glut.h>
 	<GL/freeglut_ext.h>
 	<string>
@@ -103,7 +103,7 @@
 	"../Base/IRender.h"
 	<vector>
 
-1585681526 source:/home/menegais1/Documents/Projects/ComputerGraphics/Study/BitmapReader/src/Button/Button.cpp
+1585682548 source:/home/menegais1/Documents/Projects/ComputerGraphics/Study/BitmapReader/src/Button/Button.cpp
 	"../Base/IMouse.h"
 	"../Utilities.h"
 	<vector>
@@ -118,4 +118,7 @@
 	"../Utilities.h"
 	<vector>
 	<functional>
+
+1585681810 source:/home/menegais1/Documents/Projects/ComputerGraphics/Study/BitmapReader/src/Utilities.cpp
+	"Utilities.h"
 

@@ -34,9 +34,14 @@ void Button::render()
 
 void Button::notifyOnClickListeners()
 {
-    cout << "ButtonClicked" << endl;
+   for (int i = 0; i < onClickListeners.size(); i++)
+   {
+       onClickListeners[i]();
+   }
+   
 }
 
 void Button::addListener(std::function<void()> listener)
 {
+    onClickListeners.push_back(listener);
 }
