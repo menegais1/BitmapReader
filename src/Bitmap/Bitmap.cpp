@@ -25,6 +25,9 @@ Bitmap::Bitmap(string fileName)
     closeFile(file);
     width = bitmapHeader->BiWidth;
     height = bitmapHeader->BiHeight;
+
+    fileHeader->print();
+    bitmapHeader->print();
 }
 
 void Bitmap::openFile(string filename, fstream &file)
@@ -97,6 +100,8 @@ Color *Bitmap::getPixelFromPallete(u_char pixelValue)
 
 void Bitmap::loadImage(fstream &file)
 {
+    file.clear();
+    file.seekg(fileHeader->BfOffSetBits, ios::beg);
     int rowSize = ceil((bitmapHeader->BiBitCount * bitmapHeader->BiWidth) / 32) * 4;
     int padding = rowSize - (bitmapHeader->BiBitCount / 8 * bitmapHeader->BiWidth);
     int bitmapSize = bitmapHeader->BiWidth * bitmapHeader->BiHeight;
@@ -151,7 +156,6 @@ void Bitmap::loadImage(fstream &file)
         for (int l = 0; l < bitmapHeader->BiHeight; l++)
         {
             file.read(byteArray, rowSize);
-
             for (int i = 0, j = 0; i <= rowSize - padding; i += (int)(bitmapHeader->BiBitCount / 8), j++)
             {
                 Color *p = new Color();

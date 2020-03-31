@@ -41,17 +41,12 @@ int main(void)
 {
    initCanvas(&screenWidth, &screenHeight, "Bitmap reader");
 
-   Bitmap *bitmap = new Bitmap("/home/menegais1/Documents/Projects/ComputerGraphics/Study/BitmapReader/src/test.bmp");
-   Bitmap *bitmap2 = new Bitmap("/home/menegais1/Documents/Projects/ComputerGraphics/Study/BitmapReader/src/test_1.bmp");
+   Bitmap *bitmap = new Bitmap("/home/menegais1/Documents/Projects/ComputerGraphics/Study/BitmapReader/src/test_boy.bmp");
 
    BitmapRenderer *bitmapRenderer1 = new BitmapRenderer(bitmap);
-   BitmapRenderer *bitmapRenderer2 = new BitmapRenderer(bitmap2);
-   bitmapRenderer2->position = {100, 100};
-   bitmapRenderer1->position = {200, 100};
+   bitmapRenderer1->position = {100, 100};
    cout << renderManager->registerRenderer(bitmapRenderer1) << endl;
-   cout << renderManager->registerRenderer(bitmapRenderer2) << endl;
    keyboardManager->registerKeyboardEvent(bitmapRenderer1);
    mouseManager->registerMouseEvent(bitmapRenderer1);
-   bitmap2->flipImageInX();
    runCanvas();
 }
