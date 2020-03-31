@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1585678404 source:/home/menegais1/Documents/Projects/ComputerGraphics/Study/BitmapReader/src/main.cpp
+1585681483 source:/home/menegais1/Documents/Projects/ComputerGraphics/Study/BitmapReader/src/main.cpp
 	<GL/glut.h>
 	<GL/freeglut_ext.h>
 	<string>
@@ -30,7 +30,7 @@
 1426372440 /home/menegais1/Documents/Projects/ComputerGraphics/Study/BitmapReader/include/GL/freeglut_ext.h
 	<stdarg.h>
 
-1585678559 /home/menegais1/Documents/Projects/ComputerGraphics/Study/BitmapReader/src/Utilities.h
+1585681731 /home/menegais1/Documents/Projects/ComputerGraphics/Study/BitmapReader/src/Utilities.h
 
 1585610418 source:/home/menegais1/Documents/Projects/ComputerGraphics/Study/BitmapReader/src/Bitmap/Bitmap.cpp
 	"Bitmap.h"
@@ -40,7 +40,7 @@
 	<cmath>
 	"../Utilities.h"
 
-1585678562 /home/menegais1/Documents/Projects/ComputerGraphics/Study/BitmapReader/src/Bitmap/Bitmap.h
+1585681483 /home/menegais1/Documents/Projects/ComputerGraphics/Study/BitmapReader/src/Bitmap/Bitmap.h
 	<string>
 	<fstream>
 	<iostream>
@@ -51,18 +51,18 @@
 	"../Canvas/gl_canvas2d.h"
 	<iostream>
 
-1585073810 /home/menegais1/Documents/Projects/ComputerGraphics/Study/BitmapReader/src/Bitmap/BitmapRenderer.h
+1585681483 /home/menegais1/Documents/Projects/ComputerGraphics/Study/BitmapReader/src/Bitmap/BitmapRenderer.h
 	"../Base/IRender.h"
 	"../Base/IKeyboard.h"
 	"../Base/IMouse.h"
 	"Bitmap.h"
 	"../Utilities.h"
 
-1585073276 /home/menegais1/Documents/Projects/ComputerGraphics/Study/BitmapReader/src/Base/IRender.h
+1585681483 /home/menegais1/Documents/Projects/ComputerGraphics/Study/BitmapReader/src/Base/IRender.h
 
-1585073276 /home/menegais1/Documents/Projects/ComputerGraphics/Study/BitmapReader/src/Base/IKeyboard.h
+1585681483 /home/menegais1/Documents/Projects/ComputerGraphics/Study/BitmapReader/src/Base/IKeyboard.h
 
-1585073276 /home/menegais1/Documents/Projects/ComputerGraphics/Study/BitmapReader/src/Base/IMouse.h
+1585681483 /home/menegais1/Documents/Projects/ComputerGraphics/Study/BitmapReader/src/Base/IMouse.h
 
 1585073618 /home/menegais1/Documents/Projects/ComputerGraphics/Study/BitmapReader/src/Canvas/gl_canvas2d.h
 	<stdio.h>
@@ -81,7 +81,7 @@
 	<vector>
 	<iostream>
 
-1585498542 /home/menegais1/Documents/Projects/ComputerGraphics/Study/BitmapReader/src/Managers/KeyboardManager.h
+1585681483 /home/menegais1/Documents/Projects/ComputerGraphics/Study/BitmapReader/src/Managers/KeyboardManager.h
 	"../Base/IKeyboard.h"
 	<vector>
 
@@ -90,7 +90,7 @@
 	<vector>
 	<iostream>
 
-1585498546 /home/menegais1/Documents/Projects/ComputerGraphics/Study/BitmapReader/src/Managers/MouseManager.h
+1585681483 /home/menegais1/Documents/Projects/ComputerGraphics/Study/BitmapReader/src/Managers/MouseManager.h
 	"../Base/IMouse.h"
 	<vector>
 
@@ -99,11 +99,11 @@
 	<vector>
 	<iostream>
 
-1585498549 /home/menegais1/Documents/Projects/ComputerGraphics/Study/BitmapReader/src/Managers/RenderManager.h
+1585681483 /home/menegais1/Documents/Projects/ComputerGraphics/Study/BitmapReader/src/Managers/RenderManager.h
 	"../Base/IRender.h"
 	<vector>
 
-1585678251 source:/home/menegais1/Documents/Projects/ComputerGraphics/Study/BitmapReader/src/Button/Button.cpp
+1585681526 source:/home/menegais1/Documents/Projects/ComputerGraphics/Study/BitmapReader/src/Button/Button.cpp
 	"../Base/IMouse.h"
 	"../Utilities.h"
 	<vector>
@@ -112,7 +112,7 @@
 	"../Canvas/gl_canvas2d.h"
 	<iostream>
 
-1585677497 /home/menegais1/Documents/Projects/ComputerGraphics/Study/BitmapReader/src/Button/Button.h
+1585681483 /home/menegais1/Documents/Projects/ComputerGraphics/Study/BitmapReader/src/Button/Button.h
 	"../Base/IMouse.h"
 	"../Base/IRender.h"
 	"../Utilities.h"

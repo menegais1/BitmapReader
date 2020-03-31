@@ -43,8 +43,5 @@ typedef struct float3
     float z;
 } Float3;
 
-bool isPointInsideBounds(Int2 point, Int2 position, Int2 scale)
-{
-    return x < position.x + scale.x && x > position.x && y < position.y + scale.y && y > position.y;
-}
+bool isPointInsideBounds(Int2 point, Int2 position, Int2 scale);
 #endif

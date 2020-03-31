@@ -62,6 +62,7 @@
 		<Unit filename="src/Managers/MouseManager.h" />
 		<Unit filename="src/Button/Button.h" />
 		<Unit filename="src/Bitmap/BitmapRenderer.h" />
+		<Unit filename="src/Utilities.cpp" />
 		<Unit filename="src/Managers/RenderManager.cpp" />
 		<Unit filename="src/Managers/KeyboardManager.cpp" />
 		<Unit filename="src/Managers/MouseManager.cpp" />
