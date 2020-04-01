@@ -49,7 +49,7 @@ int main(void)
    Button *button = new Button({100, 100}, {100, 100}, {1, 1, 1}, "teste", {0, 0, 0});
    mouseManager->registerMouseEvent(button);
    renderManager->registerRenderer(button);
-   button->addListener([]{cout << "Hello word" << endl;});
-   button->addListener([]{cout << "Hello word 2" << endl;});
+   button->addListener([&bitmap] { bitmap->convertImageToGrayScale(); });
+   button->addListener([] { cout << "Hello word 2" << endl; });
    runCanvas();
 }

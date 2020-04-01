@@ -1,11 +1,11 @@
-#include "../Base/IMouse.h"
-#include "../Utilities.h"
 #include <vector>
 #include <functional>
-#include "Button.h"
-#include "../Canvas/gl_canvas2d.h"
 #include <iostream>
 
+#include "Button.h"
+#include "../Base/IMouse.h"
+#include "../Utilities.h"
+#include "../Canvas/gl_canvas2d.h"
 using namespace std;
 
 Button::Button(Int2 position, Int2 scale, Float3 backgroundColor, string title,Float3 textColor) :

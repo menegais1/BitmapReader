@@ -9,11 +9,11 @@ void BitmapRenderer::render()
         for (int c = 0; c < bitmap->width; c++)
         {
            Int2 pos = bitmap->getPixelPositionOnScreen(l, c);
-            Color *rgba = bitmap->getPixelColorAtPosition(l, c);
+            Color rgba = bitmap->getPixelColorAtPosition(l, c);
 
-            color((float)rgba->value[0] / 255,
-                  (float)rgba->value[1] / 255,
-                  (float)rgba->value[2] / 255);
+            color((float)rgba.value[0] / 255,
+                  (float)rgba.value[1] / 255,
+                  (float)rgba.value[2] / 255);
 
             point(pos.x + position.x, pos.y + position.y);
         }

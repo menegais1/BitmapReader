@@ -62,32 +62,32 @@ public:
     std::string fileName;
     int width;
     int height;
-    Bitmap(std::string fileName);
-    Color *getPixelColorAtPosition(int l, int c) const;
-    Int2 getPixelPositionOnScreen(int l, int c) const;
+    Bitmap(const std::string fileName);
+    Color getPixelColorAtPosition(const int l,const int c) const;
+    Int2 getPixelPositionOnScreen(const int l,const int c) const;
     void flipImageInX();
     void flipImageInY();
-    void rotateImage(float angle);
+    void rotateImage(const float angle);
     void convertImageToGrayScale();
-    void scaleImage(float scale);
-    int *getHistogramForChannel(Channel c) const;
+    void scaleImage(const float scale);
+    int *getHistogramForChannel(const Channel c) const;
 
 private:
-    FileHeader *fileHeader;
-    BitmapHeader *bitmapHeader;
-    Color **colorPallete;
-    Color **bitmapArray;
+    FileHeader fileHeader;
+    BitmapHeader bitmapHeader;
+    Color *colorPallete;
+    Color *bitmapArray;
     bool colorPalleteExists;
     float imageRotation;
-    void openFile(std::string filename, std::fstream &file);
+    void openFile(const std::string filename, std::fstream &file);
     void closeFile(std::fstream &file);
     void loadFileHeader(std::fstream &file);
     void loadBitmapHeader(std::fstream &file);
     bool checkColorPallete(std::fstream &file);
     void loadColorPallete(std::fstream &file);
     void loadImage(std::fstream &file);
-    Color *getPixelFromPallete(u_char pixelValue);
-    Bitmap(int width, int height);
+    Color getPixelFromPallete(const u_char pixelValue);
+    Bitmap(const int width, const int height);
 };
 
 #endif
