@@ -70,6 +70,7 @@ public:
     void rotateImage(const float angle);
     void convertImageToGrayScale();
     void scaleImage(const float scale);
+    void resetImage();
     int *getHistogramForChannel(const Channel c) const;
 
 private:
@@ -77,6 +78,7 @@ private:
     BitmapHeader bitmapHeader;
     Color *colorPallete;
     Color *bitmapArray;
+    Color *originalBitmapArray;
     bool colorPalleteExists;
     float imageRotation;
     void openFile(const std::string filename, std::fstream &file);

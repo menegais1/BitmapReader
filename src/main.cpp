@@ -44,12 +44,33 @@ int main(void)
    Bitmap *bitmap = new Bitmap("/home/menegais1/Documents/Projects/ComputerGraphics/Study/BitmapReader/src/landscape.bmp");
 
    BitmapRenderer *bitmapRenderer1 = new BitmapRenderer(bitmap);
-   bitmapRenderer1->position = {100, 100};
-   cout << renderManager->registerRenderer(bitmapRenderer1) << endl;
-   Button *button = new Button({100, 100}, {100, 100}, {1, 1, 1}, "teste", {0, 0, 0});
-   mouseManager->registerMouseEvent(button);
-   renderManager->registerRenderer(button);
-   button->addListener([&bitmap] { bitmap->convertImageToGrayScale(); });
-   button->addListener([] { cout << "Hello word 2" << endl; });
+   bitmapRenderer1->position = {125, 50};
+   renderManager->registerRenderer(bitmapRenderer1);
+
+   Button *grayscale = new Button({25, 400}, {100, 40}, {1, 1, 1}, "Grayscale", {0, 0, 0});
+   grayscale->addListener([&bitmap] { bitmap->convertImageToGrayScale(); });
+   mouseManager->registerMouseEvent(grayscale);
+   renderManager->registerRenderer(grayscale);
+
+   Button *flipX = new Button({130, 400}, {100, 40}, {1, 1, 1}, "Flip X", {0, 0, 0});
+   flipX->addListener([&bitmap] { bitmap->flipImageInX(); });
+   mouseManager->registerMouseEvent(flipX);
+   renderManager->registerRenderer(flipX);
+   Button *flipY = new Button({240, 400}, {100, 40}, {1, 1, 1}, "Flip Y", {0, 0, 0});
+   flipY->addListener([&bitmap] { bitmap->flipImageInY(); });
+   mouseManager->registerMouseEvent(flipY);
+   renderManager->registerRenderer(flipY);
+   Button *rotate = new Button({350, 400}, {100, 40}, {1, 1, 1}, "Rotate", {0, 0, 0});
+   rotate->addListener([&bitmap] { bitmap->rotateImage(3.14 / 2.0); });
+   mouseManager->registerMouseEvent(rotate);
+   renderManager->registerRenderer(rotate);
+   Button *scale = new Button({25, 450}, {100, 40}, {1, 1, 1}, "Scale 1/2", {0, 0, 0});
+   scale->addListener([&bitmap] { bitmap->scaleImage(0.5); });
+   mouseManager->registerMouseEvent(scale);
+   renderManager->registerRenderer(scale);
+   Button *reset = new Button({130, 450}, {100, 40}, {1, 1, 1}, "Reset", {0, 0, 0});
+   reset->addListener([&bitmap] { bitmap->resetImage(); });
+   mouseManager->registerMouseEvent(reset);
+   renderManager->registerRenderer(reset);
    runCanvas();
 }

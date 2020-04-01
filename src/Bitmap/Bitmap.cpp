@@ -3,6 +3,7 @@
 #include <fstream>
 #include <iostream>
 #include <cmath>
+#include <cstring>
 #include "../Utilities.h"
 using namespace std;
 
@@ -74,7 +75,7 @@ bool Bitmap::checkColorPallete(fstream &file)
 void Bitmap::loadColorPallete(fstream &file)
 {
     int palleteCount = pow(2, bitmapHeader.BiBitCount);
-    colorPallete = new Color [palleteCount];
+    colorPallete = new Color[palleteCount];
 
     for (int i = 0; i < palleteCount; i++)
     {
@@ -104,7 +105,7 @@ void Bitmap::loadImage(fstream &file)
     int bitmapSize = bitmapHeader.BiWidth * bitmapHeader.BiHeight;
     char *byteArray = new char[rowSize];
 
-    bitmapArray = new Color [bitmapSize];
+    bitmapArray = new Color[bitmapSize];
 
     cout << "Bitmap size:" << bitmapSize << endl;
     cout << "Row Size:" << rowSize << endl;
@@ -174,16 +175,19 @@ void Bitmap::loadImage(fstream &file)
             }
         }
     }
+
+    originalBitmapArray = new Color[bitmapSize];
+    std::memcpy(originalBitmapArray, bitmapArray, bitmapSize * sizeof(Color));
 }
 
-Color Bitmap::getPixelColorAtPosition(const int l,const int c) const
+Color Bitmap::getPixelColorAtPosition(const int l, const int c) const
 {
 
     int idx = (height - 1 - l) * width + c;
     return bitmapArray[idx];
 }
 
-Int2 Bitmap::getPixelPositionOnScreen(const int l,const int c) const
+Int2 Bitmap::getPixelPositionOnScreen(const int l, const int c) const
 {
     int newC = (c * cos(imageRotation) + l * sin(imageRotation));
     int newL = ((-c * sin(imageRotation)) + l * cos(imageRotation));
@@ -197,7 +201,7 @@ void Bitmap::scaleImage(const float scale)
     int oldWidth = this->width;
     this->height = oldHeight * scale;
     this->width = oldWidth * scale;
-    Color *newBitmapArray = new Color [height * width];
+    Color *newBitmapArray = new Color[height * width];
     for (int l = 0; l < height; l++)
     {
         for (int c = 0; c < width; c++)
@@ -211,7 +215,12 @@ void Bitmap::scaleImage(const float scale)
             newBitmapArray[idx] = color;
         }
     }
-    delete[] bitmapArray;
+    if (bitmapArray != NULL)
+    {
+        delete[] bitmapArray;
+        bitmapArray = NULL;
+    }
+
     bitmapArray = newBitmapArray;
 }
 
@@ -221,7 +230,7 @@ void Bitmap::flipImageInX()
     {
         for (int c = 0; c < width / 2; c++)
         {
-            int newIdx = (height - 1 - l) * width + (width - c);
+            int newIdx = (height - 1 - l) * width + (width - 1 - c);
             int idx = (height - 1 - l) * width + c;
             Color tmp = bitmapArray[idx];
             bitmapArray[idx] = bitmapArray[newIdx];
@@ -280,4 +289,19 @@ int *Bitmap::getHistogramForChannel(const Channel c) const
         histogram[(int)bitmapArray[i].value[c]] += 1;
     }
     return histogram;
+}
+
+void Bitmap::resetImage()
+{
+    if (bitmapArray != NULL)
+    {
+        delete[] bitmapArray;
+        bitmapArray = NULL;
+    }
+
+    bitmapArray = new Color[bitmapHeader.BiHeight * bitmapHeader.BiWidth];
+    memcpy(bitmapArray, originalBitmapArray, sizeof(Color) * bitmapHeader.BiHeight * bitmapHeader.BiWidth);
+    this->height = bitmapHeader.BiHeight;
+    this->width = bitmapHeader.BiWidth;
+    this->imageRotation = 0;
 }
