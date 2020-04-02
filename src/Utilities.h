@@ -36,6 +36,12 @@ typedef struct int2
     int y;
 } Int2;
 
+typedef struct float2
+{
+    float x;
+    float y;
+} Float2;
+
 typedef struct float3
 {
     float x;

@@ -1,9 +1,10 @@
 # depslib dependency file v1.0
-1585802676 source:/home/menegais1/Documents/Projects/ComputerGraphics/Study/BitmapReader/src/main.cpp
+1585840383 source:/home/menegais1/Documents/Projects/ComputerGraphics/Study/BitmapReader/src/main.cpp
 	<GL/glut.h>
 	<GL/freeglut_ext.h>
 	<string>
 	<iostream>
+	<cmath>
 	"Canvas/gl_canvas2d.h"
 	"Bitmap/Bitmap.h"
 	"Utilities.h"
@@ -31,9 +32,9 @@
 1426372440 /home/menegais1/Documents/Projects/ComputerGraphics/Study/BitmapReader/include/GL/freeglut_ext.h
 	<stdarg.h>
 
-1585681731 /home/menegais1/Documents/Projects/ComputerGraphics/Study/BitmapReader/src/Utilities.h
+1585839620 /home/menegais1/Documents/Projects/ComputerGraphics/Study/BitmapReader/src/Utilities.h
 
-1585788322 source:/home/menegais1/Documents/Projects/ComputerGraphics/Study/BitmapReader/src/Bitmap/Bitmap.cpp
+1585840188 source:/home/menegais1/Documents/Projects/ComputerGraphics/Study/BitmapReader/src/Bitmap/Bitmap.cpp
 	"Bitmap.h"
 	<string>
 	<fstream>
@@ -42,13 +43,13 @@
 	<cstring>
 	"../Utilities.h"
 
-1585803466 /home/menegais1/Documents/Projects/ComputerGraphics/Study/BitmapReader/src/Bitmap/Bitmap.h
+1585839711 /home/menegais1/Documents/Projects/ComputerGraphics/Study/BitmapReader/src/Bitmap/Bitmap.h
 	<string>
 	<fstream>
 	<iostream>
 	"../Utilities.h"
 
-1585800860 source:/home/menegais1/Documents/Projects/ComputerGraphics/Study/BitmapReader/src/Bitmap/BitmapRenderer.cpp
+1585839675 source:/home/menegais1/Documents/Projects/ComputerGraphics/Study/BitmapReader/src/Bitmap/BitmapRenderer.cpp
 	"BitmapRenderer.h"
 	"../Canvas/gl_canvas2d.h"
 	<iostream>
@@ -64,7 +65,7 @@
 
 1585681483 /home/menegais1/Documents/Projects/ComputerGraphics/Study/BitmapReader/src/Base/IMouse.h
 
-1585788088 /home/menegais1/Documents/Projects/ComputerGraphics/Study/BitmapReader/src/Canvas/gl_canvas2d.h
+1585839590 /home/menegais1/Documents/Projects/ComputerGraphics/Study/BitmapReader/src/Canvas/gl_canvas2d.h
 	<stdio.h>
 	<stdlib.h>
 	<math.h>
@@ -72,7 +73,7 @@
 	<GL/glut.h>
 	<GL/freeglut_ext.h>
 
-1585788034 source:/home/menegais1/Documents/Projects/ComputerGraphics/Study/BitmapReader/src/Canvas/gl_canvas2d.cpp
+1585839577 source:/home/menegais1/Documents/Projects/ComputerGraphics/Study/BitmapReader/src/Canvas/gl_canvas2d.cpp
 	"gl_canvas2d.h"
 	<GL/glut.h>
 

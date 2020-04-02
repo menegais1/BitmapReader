@@ -187,11 +187,13 @@ Color Bitmap::getPixelColorAtPosition(const int l, const int c) const
     return bitmapArray[idx];
 }
 
-Int2 Bitmap::getPixelPositionOnScreen(const int l, const int c) const
+Float2 Bitmap::getPixelPositionOnScreen(const int l, const int c) const
 {
-    int newC = (c * cos(imageRotation) + l * sin(imageRotation));
-    int newL = ((-c * sin(imageRotation)) + l * cos(imageRotation));
-    Int2 pos = {newC, newL};
+    float translatedC = c - width / 2;
+    float translatedL = l - height / 2;
+    float newC = (translatedC * cos(imageRotation) + translatedL * sin(imageRotation));
+    float newL = ((-translatedC * sin(imageRotation)) + translatedL * cos(imageRotation));
+    Float2 pos = {newC + width / 2, newL + height / 2};
     return pos;
 }
 

@@ -2,7 +2,7 @@
 #include <GL/freeglut_ext.h> //callback da wheel do mouse.
 #include <string>
 #include <iostream>
-
+#include <cmath>
 #include "Canvas/gl_canvas2d.h"
 #include "Bitmap/Bitmap.h"
 #include "Utilities.h"
@@ -73,7 +73,7 @@ int main(void)
    renderManager->registerRenderer(flipY);
 
    Button *rotate = new Button({350, 400}, {100, 40}, {1, 1, 1}, "Rotate", {0, 0, 0});
-   rotate->addListener([&bitmap] { bitmap->rotateImage(3.14 / 2.0); });
+   rotate->addListener([&bitmap] { bitmap->rotateImage(M_PI / 2.0); });
    mouseManager->registerMouseEvent(rotate);
    renderManager->registerRenderer(rotate);
 
@@ -89,14 +89,14 @@ int main(void)
 
    HistogramRenderer *red = new HistogramRenderer({100, 100}, {270, 100}, {0, 0, 0}, {1, 0, 0});
    red->setHistogram(bitmap->getHistogramForChannel(Channel::Red));
-   renderManager->registerRenderer(red);
+   //renderManager->registerRenderer(red);
 
    HistogramRenderer *green = new HistogramRenderer({100, 200}, {270, 100}, {0, 0, 0}, {0, 1, 0});
    green->setHistogram(bitmap->getHistogramForChannel(Channel::Green));
-   renderManager->registerRenderer(green);
+  // renderManager->registerRenderer(green);
 
    HistogramRenderer *blue = new HistogramRenderer({100, 300}, {270, 100}, {0, 0, 0}, {0, 0, 1});
    blue->setHistogram(bitmap->getHistogramForChannel(Channel::Blue));
-   renderManager->registerRenderer(blue);
+   //renderManager->registerRenderer(blue);
    runCanvas();
 }

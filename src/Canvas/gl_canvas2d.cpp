@@ -18,7 +18,7 @@
 
 int *scrWidth, *scrHeight; //guarda referencia para as variaveis de altura e largura da main()
 
-void point(int x, int y)
+void point(double x, double y)
 {
    glBegin(GL_POINTS);
       glVertex2d(x, y);

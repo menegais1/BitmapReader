@@ -14,7 +14,7 @@
 #define Y_CANVAS_CRESCE_PARA_CIMA 1
 
 //funcoes para desenho de ponto e linha
-void point(int x, int y); //coordeandas do ponto
+void point(double x, double y); //coordeandas do ponto
 void line( int x1, int y1, int x2, int y2 ); //coordenadas da linha x1, y1, x2, y2
 
 //desenha um retangulo alinhado nos eixos x e y

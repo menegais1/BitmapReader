@@ -64,7 +64,7 @@ public:
     int height;
     Bitmap(const std::string fileName);
     Color getPixelColorAtPosition(const int l,const int c) const;
-    Int2 getPixelPositionOnScreen(const int l,const int c) const;
+    Float2 getPixelPositionOnScreen(const int l,const int c) const;
     void flipImageInX();
     void flipImageInY();
     void rotateImage(const float angle);
