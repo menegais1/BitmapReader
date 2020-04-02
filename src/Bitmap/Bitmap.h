@@ -71,6 +71,7 @@ public:
     void convertImageToGrayScale();
     void scaleImage(const float scale);
     void resetImage();
+    void convertToSingleChannel(const Channel c);
     int *getHistogramForChannel(const Channel c) const;
 
 private:

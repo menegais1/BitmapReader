@@ -5,14 +5,24 @@
 #include "Histogram/HistogramRenderer.h"
 #include "Bitmap/BitmapRenderer.h"
 
-class BitmapRendererManager
+class BitmapReaderManager
 {
 public:
+    BitmapReaderManager();
+
 private:
     Bitmap *bitmap;
     BitmapRenderer *bitmapRenderer;
-    HistogramRenderer *histogramRenderer;
+
+    HistogramRenderer *red;
+    HistogramRenderer *blue;
+    HistogramRenderer *green;
+    HistogramRenderer *grayscale;
+
     Button *grayscaleButton;
+    Button *rChannelButton;
+    Button *gChannelButton;
+    Button *bChannelButton;
     Button *flipXButton;
     Button *flipYButton;
     Button *rotateButton;
@@ -20,7 +30,11 @@ private:
     Button *resetButton;
     Button *histogramButton;
 
-    BitmapReaderManager();
-}
+    void registerButton(Button *b);
+    void initializeManagers();
+    void initializeBitmap();
+    void initializeButtons();
+    void initializeHistogram();
+};
 
 #endif

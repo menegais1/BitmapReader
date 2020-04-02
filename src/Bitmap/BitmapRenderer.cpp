@@ -4,7 +4,6 @@
 
 void BitmapRenderer::render()
 {
-    if(!isActive) return;
     for (int l = 0; l < bitmap->height; l++)
     {
         for (int c = 0; c < bitmap->width; c++)
@@ -21,7 +20,7 @@ void BitmapRenderer::render()
     }
 }
 
-BitmapRenderer::BitmapRenderer(Bitmap *bitmap)
+BitmapRenderer::BitmapRenderer(Bitmap *bitmap) : CanvasObject()
 {
     this->bitmap = bitmap;
     this->isActive = true;

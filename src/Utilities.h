@@ -49,5 +49,5 @@ typedef struct float3
     float z;
 } Float3;
 
-bool isPointInsideBounds(Int2 point, Int2 position, Int2 scale);
+bool isPointInsideBounds(Float2 point, Float2 position, Float2 scale);
 #endif

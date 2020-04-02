@@ -57,20 +57,20 @@
 		<Unit filename="src/Base/IRender.h" />
 		<Unit filename="src/Base/IMouse.h" />
 		<Unit filename="src/Base/IKeyboard.h" />
-		<Unit filename="src/Managers/RenderManager.h" />
-		<Unit filename="src/Managers/KeyboardManager.h" />
-		<Unit filename="src/Managers/MouseManager.h" />
+		<Unit filename="src/Base/CanvasObject.h" />
+		<Unit filename="src/Managers/GlobalManager.h" />
 		<Unit filename="src/Button/Button.h" />
 		<Unit filename="src/Histogram/HistogramRenderer.h" />
 		<Unit filename="src/Bitmap/BitmapRenderer.h" />
+		<Unit filename="src/BitmapReaderManager.h" />
+		<Unit filename="src/Base/CanvasObject.cpp" />
 		<Unit filename="src/Utilities.cpp" />
-		<Unit filename="src/Managers/RenderManager.cpp" />
-		<Unit filename="src/Managers/KeyboardManager.cpp" />
-		<Unit filename="src/Managers/MouseManager.cpp" />
+		<Unit filename="src/Managers/GlobalManager.cpp" />
 		<Unit filename="src/Button/Button.cpp" />
 		<Unit filename="src/Histogram/HistogramRenderer.cpp" />
 		<Unit filename="src/Bitmap/Bitmap.cpp" />
 		<Unit filename="src/Bitmap/BitmapRenderer.cpp" />
+		<Unit filename="src/BitmapReaderManager.cpp" />
 		<Unit filename="src/main.cpp" />
 		<Extensions>
 			<code_completion />

@@ -293,6 +293,19 @@ int *Bitmap::getHistogramForChannel(const Channel c) const
     return histogram;
 }
 
+void Bitmap::convertToSingleChannel(const Channel c)
+{
+    for (int i = 0; i < width * height; i++)
+    {
+        for (int curC = 0; curC < 3; curC++)
+        {
+            if (c == curC)
+                continue;
+            bitmapArray[i].value[curC] = 0;
+        }
+    }
+}
+
 void Bitmap::resetImage()
 {
     if (bitmapArray != NULL)

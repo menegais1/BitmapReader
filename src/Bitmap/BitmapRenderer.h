@@ -1,14 +1,12 @@
 #ifndef BITMAP_RENDERER_H
 #define BITMAP_RENDERER_H
 
-#include "../Base/IRender.h"
+#include "../Base/CanvasObject.h"
 #include "../Utilities.h"
 #include "Bitmap.h"
-class BitmapRenderer : public IRender
+class BitmapRenderer : public CanvasObject
 {
 public:
-    bool isActive;
-    Int2 position;
     void render() override;
     BitmapRenderer(Bitmap *bitmap);
 
