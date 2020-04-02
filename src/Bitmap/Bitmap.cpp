@@ -183,7 +183,7 @@ void Bitmap::loadImage(fstream &file)
 Color Bitmap::getPixelColorAtPosition(const int l, const int c) const
 {
 
-    int idx = (height - 1 - l) * width + c;
+    int idx = l * width + c;
     return bitmapArray[idx];
 }
 
@@ -208,10 +208,10 @@ void Bitmap::scaleImage(const float scale)
         {
             int oldL = floor(l * (1 / scale));
             int oldC = floor(c * (1 / scale));
-            int oldIdx = (oldHeight - 1 - oldL) * oldWidth + oldC;
+            int oldIdx = oldL * oldWidth + oldC;
             Color color = bitmapArray[oldIdx];
 
-            int idx = (height - 1 - l) * width + c;
+            int idx = l * width + c;
             newBitmapArray[idx] = color;
         }
     }
@@ -230,8 +230,8 @@ void Bitmap::flipImageInX()
     {
         for (int c = 0; c < width / 2; c++)
         {
-            int newIdx = (height - 1 - l) * width + (width - 1 - c);
-            int idx = (height - 1 - l) * width + c;
+            int newIdx = l * width + (width - 1 - c);
+            int idx = l * width + c;
             Color tmp = bitmapArray[idx];
             bitmapArray[idx] = bitmapArray[newIdx];
             bitmapArray[newIdx] = tmp;
@@ -245,8 +245,8 @@ void Bitmap::flipImageInY()
     {
         for (int c = 0; c < width; c++)
         {
-            int newIdx = l * width + c;
-            int idx = (height - 1 - l) * width + c;
+            int newIdx = (height - 1 - l) * width + c;
+            int idx = l * width + c;
             Color tmp = bitmapArray[idx];
             bitmapArray[idx] = bitmapArray[newIdx];
             bitmapArray[newIdx] = tmp;
@@ -265,7 +265,7 @@ void Bitmap::convertImageToGrayScale()
     {
         for (int c = 0; c < width; c++)
         {
-            int idx = (height - 1 - l) * width + c;
+            int idx = l * width + c;
 
             float grayScaleColor = bitmapArray[idx].value[0] * 0.299 + bitmapArray[idx].value[1] * 0.587 + bitmapArray[idx].value[2] * 0.114;
             Color color;
@@ -298,7 +298,7 @@ void Bitmap::resetImage()
         delete[] bitmapArray;
         bitmapArray = NULL;
     }
-
+    
     bitmapArray = new Color[bitmapHeader.BiHeight * bitmapHeader.BiWidth];
     memcpy(bitmapArray, originalBitmapArray, sizeof(Color) * bitmapHeader.BiHeight * bitmapHeader.BiWidth);
     this->height = bitmapHeader.BiHeight;

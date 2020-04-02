@@ -11,14 +11,23 @@
 #include "Managers/KeyboardManager.h"
 #include "Managers/MouseManager.h"
 #include "Button/Button.h"
+#include "Histogram/Histogram.h"
 using namespace std;
 int screenWidth = 500, screenHeight = 500;
 
 RenderManager *renderManager = new RenderManager();
 KeyboardManager *keyboardManager = new KeyboardManager();
 MouseManager *mouseManager = new MouseManager();
+
+int test = 0;
 void render()
 {
+   color(1,1,1);
+   point(1,test);
+   point(2,test);
+   point(3,test);
+   test++;
+   if(test == 100) test = 0;
    renderManager->render();
 }
 
@@ -51,7 +60,6 @@ int main(void)
    grayscale->addListener([&bitmap] { bitmap->convertImageToGrayScale(); });
    mouseManager->registerMouseEvent(grayscale);
    renderManager->registerRenderer(grayscale);
-
    Button *flipX = new Button({130, 400}, {100, 40}, {1, 1, 1}, "Flip X", {0, 0, 0});
    flipX->addListener([&bitmap] { bitmap->flipImageInX(); });
    mouseManager->registerMouseEvent(flipX);
@@ -72,5 +80,8 @@ int main(void)
    reset->addListener([&bitmap] { bitmap->resetImage(); });
    mouseManager->registerMouseEvent(reset);
    renderManager->registerRenderer(reset);
+
+   Histogram *hist = new Histogram({100, 100}, {200, 200}, {1, 1, 1}, {1, 0, 0});
+   renderManager->registerRenderer(hist);
    runCanvas();
 }

@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1585765546 source:/home/menegais1/Documents/Projects/ComputerGraphics/Study/BitmapReader/src/main.cpp
+1585788199 source:/home/menegais1/Documents/Projects/ComputerGraphics/Study/BitmapReader/src/main.cpp
 	<GL/glut.h>
 	<GL/freeglut_ext.h>
 	<string>
@@ -12,6 +12,7 @@
 	"Managers/KeyboardManager.h"
 	"Managers/MouseManager.h"
 	"Button/Button.h"
+	"Histogram/Histogram.h"
 
 1426372440 /home/menegais1/Documents/Projects/ComputerGraphics/Study/BitmapReader/include/GL/glut.h
 	"freeglut_std.h"
@@ -32,7 +33,7 @@
 
 1585681731 /home/menegais1/Documents/Projects/ComputerGraphics/Study/BitmapReader/src/Utilities.h
 
-1585767773 source:/home/menegais1/Documents/Projects/ComputerGraphics/Study/BitmapReader/src/Bitmap/Bitmap.cpp
+1585788322 source:/home/menegais1/Documents/Projects/ComputerGraphics/Study/BitmapReader/src/Bitmap/Bitmap.cpp
 	"Bitmap.h"
 	<string>
 	<fstream>
@@ -47,7 +48,7 @@
 	<iostream>
 	"../Utilities.h"
 
-1585700091 source:/home/menegais1/Documents/Projects/ComputerGraphics/Study/BitmapReader/src/Bitmap/BitmapRenderer.cpp
+1585787584 source:/home/menegais1/Documents/Projects/ComputerGraphics/Study/BitmapReader/src/Bitmap/BitmapRenderer.cpp
 	"BitmapRenderer.h"
 	"../Canvas/gl_canvas2d.h"
 	<iostream>
@@ -65,7 +66,7 @@
 
 1585681483 /home/menegais1/Documents/Projects/ComputerGraphics/Study/BitmapReader/src/Base/IMouse.h
 
-1585073618 /home/menegais1/Documents/Projects/ComputerGraphics/Study/BitmapReader/src/Canvas/gl_canvas2d.h
+1585788088 /home/menegais1/Documents/Projects/ComputerGraphics/Study/BitmapReader/src/Canvas/gl_canvas2d.h
 	<stdio.h>
 	<stdlib.h>
 	<math.h>
@@ -73,7 +74,7 @@
 	<GL/glut.h>
 	<GL/freeglut_ext.h>
 
-1585073618 source:/home/menegais1/Documents/Projects/ComputerGraphics/Study/BitmapReader/src/Canvas/gl_canvas2d.cpp
+1585788034 source:/home/menegais1/Documents/Projects/ComputerGraphics/Study/BitmapReader/src/Canvas/gl_canvas2d.cpp
 	"gl_canvas2d.h"
 	<GL/glut.h>
 
@@ -122,4 +123,13 @@
 
 1585681810 source:/home/menegais1/Documents/Projects/ComputerGraphics/Study/BitmapReader/src/Utilities.cpp
 	"Utilities.h"
+
+1585787250 source:/home/menegais1/Documents/Projects/ComputerGraphics/Study/BitmapReader/src/Histogram/Histogram.cpp
+	"Histogram.h"
+	"../Utilities.h"
+	"../Canvas/gl_canvas2d.h"
+
+1585786899 /home/menegais1/Documents/Projects/ComputerGraphics/Study/BitmapReader/src/Histogram/Histogram.h
+	"../Utilities.h"
+	"../Base/IRender.h"
 
