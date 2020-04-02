@@ -88,7 +88,7 @@ private:
     bool checkColorPallete(std::fstream &file);
     void loadColorPallete(std::fstream &file);
     void loadImage(std::fstream &file);
-    Color getPixelFromPallete(const u_char pixelValue);
+    Color getPixelFromPallete(const unsigned char pixelValue);
     Bitmap(const int width, const int height);
 };
 

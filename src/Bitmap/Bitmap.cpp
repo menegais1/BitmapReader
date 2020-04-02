@@ -86,7 +86,7 @@ void Bitmap::loadColorPallete(fstream &file)
     }
 }
 
-Color Bitmap::getPixelFromPallete(const u_char pixelValue)
+Color Bitmap::getPixelFromPallete(const unsigned char pixelValue)
 {
     Color p;
     p.value[0] = colorPallete[pixelValue].value[0];
@@ -125,7 +125,7 @@ void Bitmap::loadImage(fstream &file)
                     for (int j = 0; j < 8; j++)
                     {
 
-                        u_char pixelValue = (byteArray[i] << j) >> 7;
+                        unsigned char pixelValue = (byteArray[i] << j) >> 7;
 
                         bitmapArray[l * bitmapHeader.BiWidth + i + j] = getPixelFromPallete(pixelValue);
                     }
@@ -135,14 +135,14 @@ void Bitmap::loadImage(fstream &file)
                     for (int j = 0; j < 2; j++)
                     {
 
-                        u_char pixelValue = (byteArray[i] << j) >> 4;
+                        unsigned char pixelValue = (byteArray[i] << j) >> 4;
                         bitmapArray[l * bitmapHeader.BiWidth + i + j] = getPixelFromPallete(pixelValue);
                     }
                 }
                 if (bitmapHeader.BiBitCount == 8)
                 {
 
-                    u_char pixelValue = byteArray[i];
+                    unsigned char pixelValue = byteArray[i];
                     bitmapArray[l * bitmapHeader.BiWidth + i] = getPixelFromPallete(pixelValue);
                 }
             }
@@ -154,7 +154,7 @@ void Bitmap::loadImage(fstream &file)
         for (int l = 0; l < bitmapHeader.BiHeight; l++)
         {
             file.read(byteArray, rowSize);
-            for (int i = 0, j = 0; i <= rowSize - padding; i += (int)(bitmapHeader.BiBitCount / 8), j++)
+            for (int i = 0, j = 0; i <= rowSize - padding - 3; i += (int)(bitmapHeader.BiBitCount / 8), j++)
             {
                 Color p;
                 if (bitmapHeader.BiBitCount == 24)
@@ -298,7 +298,7 @@ void Bitmap::resetImage()
         delete[] bitmapArray;
         bitmapArray = NULL;
     }
-    
+
     bitmapArray = new Color[bitmapHeader.BiHeight * bitmapHeader.BiWidth];
     memcpy(bitmapArray, originalBitmapArray, sizeof(Color) * bitmapHeader.BiHeight * bitmapHeader.BiWidth);
     this->height = bitmapHeader.BiHeight;

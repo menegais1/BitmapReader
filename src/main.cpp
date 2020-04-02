@@ -51,7 +51,7 @@ int main(void)
 {
    initCanvas(&screenWidth, &screenHeight, "Bitmap reader");
 
-   Bitmap *bitmap = new Bitmap("/home/menegais1/Documents/Projects/ComputerGraphics/Study/BitmapReader/src/normal_1.bmp");
+   Bitmap *bitmap = new Bitmap("/home/menegais1/Documents/Projects/ComputerGraphics/Study/BitmapReader/src/Images/normal_1.bmp");
 
    BitmapRenderer *bitmapRenderer1 = new BitmapRenderer(bitmap);
    bitmapRenderer1->position = {125, 50};
