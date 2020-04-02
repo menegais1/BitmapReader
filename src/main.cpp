@@ -81,7 +81,14 @@ int main(void)
    mouseManager->registerMouseEvent(reset);
    renderManager->registerRenderer(reset);
 
-   Histogram *hist = new Histogram({100, 100}, {200, 200}, {1, 1, 1}, {1, 0, 0});
-   renderManager->registerRenderer(hist);
+   Histogram *red = new Histogram({100, 100}, {270, 100}, {0,0,0}, {1, 0, 0});
+   red->setHistogram(bitmap->getHistogramForChannel(Channel::Red));
+   renderManager->registerRenderer(red); 
+   Histogram *green = new Histogram({100, 200}, {270, 100}, {0,0,0}, {0, 1, 0});
+   green->setHistogram(bitmap->getHistogramForChannel(Channel::Green));
+   renderManager->registerRenderer(green); 
+   Histogram *blue = new Histogram({100, 300}, {270, 100}, {0,0,0}, {0, 0, 1});
+   blue->setHistogram(bitmap->getHistogramForChannel(Channel::Blue));
+   renderManager->registerRenderer(blue);
    runCanvas();
 }

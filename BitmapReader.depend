@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1585788199 source:/home/menegais1/Documents/Projects/ComputerGraphics/Study/BitmapReader/src/main.cpp
+1585789296 source:/home/menegais1/Documents/Projects/ComputerGraphics/Study/BitmapReader/src/main.cpp
 	<GL/glut.h>
 	<GL/freeglut_ext.h>
 	<string>
@@ -124,7 +124,7 @@
 1585681810 source:/home/menegais1/Documents/Projects/ComputerGraphics/Study/BitmapReader/src/Utilities.cpp
 	"Utilities.h"
 
-1585787250 source:/home/menegais1/Documents/Projects/ComputerGraphics/Study/BitmapReader/src/Histogram/Histogram.cpp
+1585789888 source:/home/menegais1/Documents/Projects/ComputerGraphics/Study/BitmapReader/src/Histogram/Histogram.cpp
 	"Histogram.h"
 	"../Utilities.h"
 	"../Canvas/gl_canvas2d.h"
