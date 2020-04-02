@@ -22,12 +22,13 @@ MouseManager *mouseManager = new MouseManager();
 int test = 0;
 void render()
 {
-   color(1,1,1);
-   point(1,test);
-   point(2,test);
-   point(3,test);
+   color(1, 1, 1);
+   point(1, test);
+   point(2, test);
+   point(3, test);
    test++;
-   if(test == 100) test = 0;
+   if (test == 100)
+      test = 0;
    renderManager->render();
 }
 
@@ -50,7 +51,7 @@ int main(void)
 {
    initCanvas(&screenWidth, &screenHeight, "Bitmap reader");
 
-   Bitmap *bitmap = new Bitmap("/home/menegais1/Documents/Projects/ComputerGraphics/Study/BitmapReader/src/test_1.bmp");
+   Bitmap *bitmap = new Bitmap("/home/menegais1/Documents/Projects/ComputerGraphics/Study/BitmapReader/src/normal_1.bmp");
 
    BitmapRenderer *bitmapRenderer1 = new BitmapRenderer(bitmap);
    bitmapRenderer1->position = {125, 50};
@@ -86,17 +87,16 @@ int main(void)
    mouseManager->registerMouseEvent(reset);
    renderManager->registerRenderer(reset);
 
-   HistogramRenderer *red = new HistogramRenderer({100, 100}, {270, 100}, {0,0,0}, {1, 0, 0});
+   HistogramRenderer *red = new HistogramRenderer({100, 100}, {270, 100}, {0, 0, 0}, {1, 0, 0});
    red->setHistogram(bitmap->getHistogramForChannel(Channel::Red));
-   renderManager->registerRenderer(red); 
+   renderManager->registerRenderer(red);
 
-   HistogramRenderer *green = new HistogramRenderer({100, 200}, {270, 100}, {0,0,0}, {0, 1, 0});
+   HistogramRenderer *green = new HistogramRenderer({100, 200}, {270, 100}, {0, 0, 0}, {0, 1, 0});
    green->setHistogram(bitmap->getHistogramForChannel(Channel::Green));
-   renderManager->registerRenderer(green); 
+   renderManager->registerRenderer(green);
 
-   HistogramRenderer *blue = new HistogramRenderer({100, 300}, {270, 100}, {0,0,0}, {0, 0, 1});
+   HistogramRenderer *blue = new HistogramRenderer({100, 300}, {270, 100}, {0, 0, 0}, {0, 0, 1});
    blue->setHistogram(bitmap->getHistogramForChannel(Channel::Blue));
    renderManager->registerRenderer(blue);
-   
    runCanvas();
 }

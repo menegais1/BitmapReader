@@ -18,6 +18,7 @@ public:
 
 private:
     int *histogram;
+    float greatest;
 };
 
 #endif

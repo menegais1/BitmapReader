@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1585789296 source:/home/menegais1/Documents/Projects/ComputerGraphics/Study/BitmapReader/src/main.cpp
+1585802341 source:/home/menegais1/Documents/Projects/ComputerGraphics/Study/BitmapReader/src/main.cpp
 	<GL/glut.h>
 	<GL/freeglut_ext.h>
 	<string>
@@ -12,7 +12,7 @@
 	"Managers/KeyboardManager.h"
 	"Managers/MouseManager.h"
 	"Button/Button.h"
-	"Histogram/Histogram.h"
+	"Histogram/HistogramRenderer.h"
 
 1426372440 /home/menegais1/Documents/Projects/ComputerGraphics/Study/BitmapReader/include/GL/glut.h
 	"freeglut_std.h"
@@ -131,12 +131,13 @@
 	"../Utilities.h"
 	"../Base/IRender.h"
 
-1585800883 source:/home/menegais1/Documents/Projects/ComputerGraphics/Study/BitmapReader/src/Histogram/HistogramRenderer.cpp
+1585802198 source:/home/menegais1/Documents/Projects/ComputerGraphics/Study/BitmapReader/src/Histogram/HistogramRenderer.cpp
 	"HistogramRenderer.h"
 	"../Utilities.h"
 	"../Canvas/gl_canvas2d.h"
+	<iostream>
 
-1585800633 /home/menegais1/Documents/Projects/ComputerGraphics/Study/BitmapReader/src/Histogram/HistogramRenderer.h
+1585801942 /home/menegais1/Documents/Projects/ComputerGraphics/Study/BitmapReader/src/Histogram/HistogramRenderer.h
 	"../Utilities.h"
 	"../Base/IRender.h"
 

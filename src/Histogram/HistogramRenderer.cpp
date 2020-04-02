@@ -1,6 +1,8 @@
 #include "HistogramRenderer.h"
 #include "../Utilities.h"
 #include "../Canvas/gl_canvas2d.h"
+#include <iostream>
+using namespace std;
 void HistogramRenderer::render()
 {
     if (!isActive)
@@ -13,10 +15,11 @@ void HistogramRenderer::render()
 
     if (histogram != nullptr)
     {
-        for (int i = 0; i < 255; i++)
+
+        for (int i = 0; i < 256; i++)
         {
             Int2 leftDownCorner = {(position.x + 10 + i), position.y + 10};
-            Int2 rightUpCorner = {(position.x + 10 + i + 1), (position.y + 10) + histogram[i + 1] % (scale.y - 10)};
+            Int2 rightUpCorner = {(position.x + 10 + i + 1), (position.y + 10) + (histogram[i] / greatest) * scale.y};
             rectFill(leftDownCorner.x, leftDownCorner.y, rightUpCorner.x, rightUpCorner.y);
         }
     }
@@ -24,6 +27,13 @@ void HistogramRenderer::render()
 void HistogramRenderer::setHistogram(int *histogram)
 {
     this->histogram = histogram;
+    greatest = 0;
+    for (int i = 0; i < 256; i++)
+    {
+        if (histogram[i] > greatest)
+            greatest = histogram[i];
+    }
+    cout << greatest << endl;
 }
 HistogramRenderer::HistogramRenderer(Int2 position, Int2 scale, Float3 backgroundColor, Float3 lineColor) : position(position),
                                                                                                             scale(scale),
