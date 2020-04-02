@@ -1,19 +1,20 @@
-#ifndef HISTOGRAM_H
-#define HISTOGRAM_H
+#ifndef HISTOGRAM_RENDERER_H
+#define HISTOGRAM_RENDERER_H
 
 #include "../Utilities.h"
 #include "../Base/IRender.h"
 
-class Histogram : public IRender
+class HistogramRenderer : public IRender
 {
 public:
+    bool isActive;
     Int2 position;
     Int2 scale;
     Float3 backgroundColor;
     Float3 lineColor;
     void render() override;
     void setHistogram(int *histogram);
-    Histogram(Int2 position, Int2 scale, Float3 backgroundColor, Float3 lineColor);
+    HistogramRenderer(Int2 position, Int2 scale, Float3 backgroundColor, Float3 lineColor);
 
 private:
     int *histogram;

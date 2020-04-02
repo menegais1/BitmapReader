@@ -11,7 +11,7 @@
 #include "Managers/KeyboardManager.h"
 #include "Managers/MouseManager.h"
 #include "Button/Button.h"
-#include "Histogram/Histogram.h"
+#include "Histogram/HistogramRenderer.h"
 using namespace std;
 int screenWidth = 500, screenHeight = 500;
 
@@ -50,7 +50,7 @@ int main(void)
 {
    initCanvas(&screenWidth, &screenHeight, "Bitmap reader");
 
-   Bitmap *bitmap = new Bitmap("/home/menegais1/Documents/Projects/ComputerGraphics/Study/BitmapReader/src/landscape.bmp");
+   Bitmap *bitmap = new Bitmap("/home/menegais1/Documents/Projects/ComputerGraphics/Study/BitmapReader/src/test_1.bmp");
 
    BitmapRenderer *bitmapRenderer1 = new BitmapRenderer(bitmap);
    bitmapRenderer1->position = {125, 50};
@@ -60,35 +60,43 @@ int main(void)
    grayscale->addListener([&bitmap] { bitmap->convertImageToGrayScale(); });
    mouseManager->registerMouseEvent(grayscale);
    renderManager->registerRenderer(grayscale);
+
    Button *flipX = new Button({130, 400}, {100, 40}, {1, 1, 1}, "Flip X", {0, 0, 0});
    flipX->addListener([&bitmap] { bitmap->flipImageInX(); });
    mouseManager->registerMouseEvent(flipX);
    renderManager->registerRenderer(flipX);
+
    Button *flipY = new Button({240, 400}, {100, 40}, {1, 1, 1}, "Flip Y", {0, 0, 0});
    flipY->addListener([&bitmap] { bitmap->flipImageInY(); });
    mouseManager->registerMouseEvent(flipY);
    renderManager->registerRenderer(flipY);
+
    Button *rotate = new Button({350, 400}, {100, 40}, {1, 1, 1}, "Rotate", {0, 0, 0});
    rotate->addListener([&bitmap] { bitmap->rotateImage(3.14 / 2.0); });
    mouseManager->registerMouseEvent(rotate);
    renderManager->registerRenderer(rotate);
+
    Button *scale = new Button({25, 450}, {100, 40}, {1, 1, 1}, "Scale 1/2", {0, 0, 0});
    scale->addListener([&bitmap] { bitmap->scaleImage(0.5); });
    mouseManager->registerMouseEvent(scale);
    renderManager->registerRenderer(scale);
+
    Button *reset = new Button({130, 450}, {100, 40}, {1, 1, 1}, "Reset", {0, 0, 0});
    reset->addListener([&bitmap] { bitmap->resetImage(); });
    mouseManager->registerMouseEvent(reset);
    renderManager->registerRenderer(reset);
 
-   Histogram *red = new Histogram({100, 100}, {270, 100}, {0,0,0}, {1, 0, 0});
+   HistogramRenderer *red = new HistogramRenderer({100, 100}, {270, 100}, {0,0,0}, {1, 0, 0});
    red->setHistogram(bitmap->getHistogramForChannel(Channel::Red));
    renderManager->registerRenderer(red); 
-   Histogram *green = new Histogram({100, 200}, {270, 100}, {0,0,0}, {0, 1, 0});
+
+   HistogramRenderer *green = new HistogramRenderer({100, 200}, {270, 100}, {0,0,0}, {0, 1, 0});
    green->setHistogram(bitmap->getHistogramForChannel(Channel::Green));
    renderManager->registerRenderer(green); 
-   Histogram *blue = new Histogram({100, 300}, {270, 100}, {0,0,0}, {0, 0, 1});
+
+   HistogramRenderer *blue = new HistogramRenderer({100, 300}, {270, 100}, {0,0,0}, {0, 0, 1});
    blue->setHistogram(bitmap->getHistogramForChannel(Channel::Blue));
    renderManager->registerRenderer(blue);
+   
    runCanvas();
 }

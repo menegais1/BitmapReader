@@ -48,17 +48,15 @@
 	<iostream>
 	"../Utilities.h"
 
-1585787584 source:/home/menegais1/Documents/Projects/ComputerGraphics/Study/BitmapReader/src/Bitmap/BitmapRenderer.cpp
+1585800860 source:/home/menegais1/Documents/Projects/ComputerGraphics/Study/BitmapReader/src/Bitmap/BitmapRenderer.cpp
 	"BitmapRenderer.h"
 	"../Canvas/gl_canvas2d.h"
 	<iostream>
 
-1585681483 /home/menegais1/Documents/Projects/ComputerGraphics/Study/BitmapReader/src/Bitmap/BitmapRenderer.h
+1585800923 /home/menegais1/Documents/Projects/ComputerGraphics/Study/BitmapReader/src/Bitmap/BitmapRenderer.h
 	"../Base/IRender.h"
-	"../Base/IKeyboard.h"
-	"../Base/IMouse.h"
-	"Bitmap.h"
 	"../Utilities.h"
+	"Bitmap.h"
 
 1585681483 /home/menegais1/Documents/Projects/ComputerGraphics/Study/BitmapReader/src/Base/IRender.h
 
@@ -130,6 +128,15 @@
 	"../Canvas/gl_canvas2d.h"
 
 1585786899 /home/menegais1/Documents/Projects/ComputerGraphics/Study/BitmapReader/src/Histogram/Histogram.h
+	"../Utilities.h"
+	"../Base/IRender.h"
+
+1585800883 source:/home/menegais1/Documents/Projects/ComputerGraphics/Study/BitmapReader/src/Histogram/HistogramRenderer.cpp
+	"HistogramRenderer.h"
+	"../Utilities.h"
+	"../Canvas/gl_canvas2d.h"
+
+1585800633 /home/menegais1/Documents/Projects/ComputerGraphics/Study/BitmapReader/src/Histogram/HistogramRenderer.h
 	"../Utilities.h"
 	"../Base/IRender.h"
 

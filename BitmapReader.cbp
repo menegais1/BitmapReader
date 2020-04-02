@@ -61,14 +61,14 @@
 		<Unit filename="src/Managers/KeyboardManager.h" />
 		<Unit filename="src/Managers/MouseManager.h" />
 		<Unit filename="src/Button/Button.h" />
-		<Unit filename="src/Histogram/Histogram.h" />
+		<Unit filename="src/Histogram/HistogramRenderer.h" />
 		<Unit filename="src/Bitmap/BitmapRenderer.h" />
 		<Unit filename="src/Utilities.cpp" />
 		<Unit filename="src/Managers/RenderManager.cpp" />
 		<Unit filename="src/Managers/KeyboardManager.cpp" />
 		<Unit filename="src/Managers/MouseManager.cpp" />
 		<Unit filename="src/Button/Button.cpp" />
-		<Unit filename="src/Histogram/Histogram.cpp" />
+		<Unit filename="src/Histogram/HistogramRenderer.cpp" />
 		<Unit filename="src/Bitmap/Bitmap.cpp" />
 		<Unit filename="src/Bitmap/BitmapRenderer.cpp" />
 		<Unit filename="src/main.cpp" />
