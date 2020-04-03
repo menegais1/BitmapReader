@@ -1,11 +1,11 @@
 # depslib dependency file v1.0
-1585858059 source:/home/menegais1/Documents/Projects/ComputerGraphics/Study/BitmapReader/src/Base/CanvasObject.cpp
+1585917648 source:/home/menegais1/Documents/Projects/ComputerGraphics/Study/BitmapReader/src/Base/CanvasObject.cpp
 	"CanvasObject.h"
 	"../Managers/GlobalManager.h"
 	"../Utilities.h"
 	<iostream>
 
-1585852219 /home/menegais1/Documents/Projects/ComputerGraphics/Study/BitmapReader/src/Base/CanvasObject.h
+1585920696 /home/menegais1/Documents/Projects/ComputerGraphics/Study/BitmapReader/src/Base/CanvasObject.h
 	"IMouse.h"
 	"IKeyboard.h"
 	"IRender.h"
@@ -73,16 +73,19 @@
 1426372440 /home/menegais1/Documents/Projects/ComputerGraphics/Study/BitmapReader/include/GL/freeglut_ext.h
 	<stdarg.h>
 
-1585858281 source:/home/menegais1/Documents/Projects/ComputerGraphics/Study/BitmapReader/src/BitmapReaderManager.cpp
+1585922712 source:/home/menegais1/Documents/Projects/ComputerGraphics/Study/BitmapReader/src/BitmapReaderManager.cpp
 	"BitmapReaderManager.h"
 	"Button/Button.h"
 	<cmath>
 	"Managers/GlobalManager.h"
+	"Panel/Panel.h"
+	"Histogram/HistogramPanel.h"
 
-1585852233 /home/menegais1/Documents/Projects/ComputerGraphics/Study/BitmapReader/src/BitmapReaderManager.h
+1585921365 /home/menegais1/Documents/Projects/ComputerGraphics/Study/BitmapReader/src/BitmapReaderManager.h
 	"Button/Button.h"
-	"Histogram/HistogramRenderer.h"
+	"Histogram/HistogramPanel.h"
 	"Bitmap/BitmapRenderer.h"
+	"Panel/Panel.h"
 
 1585855561 /home/menegais1/Documents/Projects/ComputerGraphics/Study/BitmapReader/src/Button/Button.h
 	"../Base/CanvasObject.h"
@@ -90,9 +93,9 @@
 	<vector>
 	<functional>
 
-1585801942 /home/menegais1/Documents/Projects/ComputerGraphics/Study/BitmapReader/src/Histogram/HistogramRenderer.h
+1585921808 /home/menegais1/Documents/Projects/ComputerGraphics/Study/BitmapReader/src/Histogram/HistogramRenderer.h
 	"../Utilities.h"
-	"../Base/IRender.h"
+	"../Base/CanvasObject.h"
 
 1585855653 source:/home/menegais1/Documents/Projects/ComputerGraphics/Study/BitmapReader/src/Button/Button.cpp
 	<vector>
@@ -107,7 +110,7 @@
 	"gl_canvas2d.h"
 	<GL/glut.h>
 
-1585802509 source:/home/menegais1/Documents/Projects/ComputerGraphics/Study/BitmapReader/src/Histogram/HistogramRenderer.cpp
+1585921766 source:/home/menegais1/Documents/Projects/ComputerGraphics/Study/BitmapReader/src/Histogram/HistogramRenderer.cpp
 	"HistogramRenderer.h"
 	"../Utilities.h"
 	"../Canvas/gl_canvas2d.h"
@@ -128,7 +131,7 @@
 	"BitmapReaderManager.h"
 	"Managers/GlobalManager.h"
 
-1585858546 source:/home/menegais1/Documents/Projects/ComputerGraphics/Study/BitmapReader/src/Managers/GlobalManager.cpp
+1585917870 source:/home/menegais1/Documents/Projects/ComputerGraphics/Study/BitmapReader/src/Managers/GlobalManager.cpp
 	<vector>
 	"../Base/CanvasObject.h"
 	"GlobalManager.h"
@@ -136,4 +139,23 @@
 
 1585855606 source:/home/menegais1/Documents/Projects/ComputerGraphics/Study/BitmapReader/src/Utilities.cpp
 	"Utilities.h"
+
+1585921698 /home/menegais1/Documents/Projects/ComputerGraphics/Study/BitmapReader/src/Histogram/HistogramPanel.h
+	"../Utilities.h"
+	"../Panel/Panel.h"
+	"HistogramRenderer.h"
+	"../Button/Button.h"
+
+1585920794 /home/menegais1/Documents/Projects/ComputerGraphics/Study/BitmapReader/src/Panel/Panel.h
+	"../Base/CanvasObject.h"
+	"../Utilities.h"
+	<vector>
+
+1585921424 source:/home/menegais1/Documents/Projects/ComputerGraphics/Study/BitmapReader/src/Panel/Panel.cpp
+	"Panel.h"
+
+1585922657 source:/home/menegais1/Documents/Projects/ComputerGraphics/Study/BitmapReader/src/Histogram/HistogramPanel.cpp
+	"HistogramPanel.h"
+	"HistogramRenderer.h"
+	"../Button/Button.h"
 

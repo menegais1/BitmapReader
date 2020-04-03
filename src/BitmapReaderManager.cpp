@@ -2,13 +2,31 @@
 #include "Button/Button.h"
 #include <cmath>
 #include "Managers/GlobalManager.h"
-BitmapReaderManager::BitmapReaderManager()
+#include "Panel/Panel.h"
+#include "Histogram/HistogramPanel.h"
+
+BitmapReaderManager::BitmapReaderManager() : Panel()
 {
 
     bitmap = new Bitmap("/home/menegais1/Documents/Projects/ComputerGraphics/Study/BitmapReader/src/Images/test.bmp");
     bitmapRenderer = new BitmapRenderer(bitmap);
     bitmapRenderer->position = {125, 300};
+    histogramPanel = new HistogramPanel();
+    histogramPanel->closePanel->addListener([this] {
+        this->setActive(true);
+    });
     initializeButtons();
+    children.push_back(bitmapRenderer);
+    children.push_back(grayscaleButton);
+    children.push_back(rChannelButton);
+    children.push_back(gChannelButton);
+    children.push_back(bChannelButton);
+    children.push_back(flipXButton);
+    children.push_back(flipYButton);
+    children.push_back(rotateButton);
+    children.push_back(scaleButton);
+    children.push_back(histogramButton);
+    children.push_back(resetButton);
 }
 
 void BitmapReaderManager::initializeManagers()
@@ -40,7 +58,17 @@ void BitmapReaderManager::initializeButtons()
     scaleButton->addListener([*this] { this->bitmap->scaleImage(0.5); });
 
     histogramButton = new Button({10, 10}, {100, 30}, {1, 1, 1}, "Histogram", {0, 0, 0});
-    histogramButton->addListener([*this] { this->rotateButton->isActive = !this->rotateButton->isActive; });
+    histogramButton->addListener([this] {
+        this->setActive(false);
+        this->histogramPanel->setActive(true);
+        int *red = this->bitmap->getHistogramForChannel(Channel::Red);
+        int *green = this->bitmap->getHistogramForChannel(Channel::Green);
+        int *blue = this->bitmap->getHistogramForChannel(Channel::Blue);
+        this->bitmap->convertImageToGrayScale();
+        int *grayscale = this->bitmap->getHistogramForChannel(Channel::Red);
+        this->bitmap->resetImage();
+        this->histogramPanel->setHistograms(red, green, blue, grayscale);
+    });
     resetButton = new Button({120, 10}, {100, 30}, {1, 1, 1}, "Reset", {0, 0, 0});
     resetButton->addListener([*this] { this->bitmap->resetImage(); });
 }

@@ -8,7 +8,6 @@
 class CanvasObject : public IRender, public IKeyboard, public IMouse
 {
 public:
-    bool isActive;
     Float2 position;
     Float2 scale;
     void keyboard(int key) override;
@@ -16,8 +15,11 @@ public:
     void mouse(int button, int state, int wheel, int direction, int x, int y) override;
     void render() override;
     CanvasObject();
+    virtual void setActive(bool isActive);
+    bool getActive();
 
 protected:
+    bool isActive;
     int objectId;
 };
 #endif

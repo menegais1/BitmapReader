@@ -2,6 +2,7 @@
 #include "../Managers/GlobalManager.h"
 #include "../Utilities.h"
 #include <iostream>
+
 void CanvasObject::keyboard(int key)
 {
 }
@@ -14,6 +15,15 @@ void CanvasObject::mouse(int button, int state, int wheel, int direction, int x,
 void CanvasObject::render()
 {
 }
+
+void CanvasObject::setActive(bool isActive)
+{
+    this->isActive = isActive;
+}
+bool CanvasObject::getActive(){
+    return this->isActive;
+}
+
 CanvasObject::CanvasObject()
 {
     objectId = GlobalManager::getInstance()->registerObject(this);

@@ -2,10 +2,10 @@
 #define BITMAPREADERMANAGER_H
 
 #include "Button/Button.h"
-#include "Histogram/HistogramRenderer.h"
+#include "Histogram/HistogramPanel.h"
 #include "Bitmap/BitmapRenderer.h"
-
-class BitmapReaderManager
+#include "Panel/Panel.h"
+class BitmapReaderManager : public Panel
 {
 public:
     BitmapReaderManager();
@@ -13,12 +13,7 @@ public:
 private:
     Bitmap *bitmap;
     BitmapRenderer *bitmapRenderer;
-
-    HistogramRenderer *red;
-    HistogramRenderer *blue;
-    HistogramRenderer *green;
-    HistogramRenderer *grayscale;
-
+    HistogramPanel *histogramPanel;
     Button *grayscaleButton;
     Button *rChannelButton;
     Button *gChannelButton;

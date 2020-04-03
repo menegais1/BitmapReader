@@ -18,7 +18,7 @@ void GlobalManager::keyboard(int key)
 
     for (int i = 0; i < objects.size(); i++)
     {
-        if (!objects[i]->isActive)
+        if (!objects[i]->getActive())
             continue;
         objects[i]->keyboard(key);
     }
@@ -27,7 +27,7 @@ void GlobalManager::keyboardUp(int key)
 {
     for (int i = 0; i < objects.size(); i++)
     {
-        if (!objects[i]->isActive)
+        if (!objects[i]->getActive())
             continue;
         objects[i]->keyboardUp(key);
     }
@@ -36,7 +36,7 @@ void GlobalManager::mouse(int button, int state, int wheel, int direction, int x
 {
     for (int i = 0; i < objects.size(); i++)
     {
-        if (!objects[i]->isActive)
+        if (!objects[i]->getActive())
             continue;
         objects[i]->mouse(button, state, wheel, direction, x, y);
     }
@@ -46,7 +46,7 @@ void GlobalManager::render()
     std::cout << GlobalManager::objects.size() << std::endl;
     for (int i = 0; i < GlobalManager::objects.size(); i++)
     {
-        if (!objects[i]->isActive)
+        if (!objects[i]->getActive())
             continue;
         objects[i]->render();
     }

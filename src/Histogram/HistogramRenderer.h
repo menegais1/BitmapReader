@@ -2,9 +2,9 @@
 #define HISTOGRAM_RENDERER_H
 
 #include "../Utilities.h"
-#include "../Base/IRender.h"
+#include "../Base/CanvasObject.h"
 
-class HistogramRenderer : public IRender
+class HistogramRenderer : public CanvasObject
 {
 public:
     bool isActive;

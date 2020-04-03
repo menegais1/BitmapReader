@@ -35,7 +35,7 @@ void HistogramRenderer::setHistogram(int *histogram)
     }
     cout << greatest << endl;
 }
-HistogramRenderer::HistogramRenderer(Int2 position, Int2 scale, Float3 backgroundColor, Float3 lineColor) : position(position),
+HistogramRenderer::HistogramRenderer(Int2 position, Int2 scale, Float3 backgroundColor, Float3 lineColor) : CanvasObject(), position(position),
                                                                                                             scale(scale),
                                                                                                             backgroundColor(backgroundColor),
                                                                                                             lineColor(lineColor)
