@@ -7,7 +7,6 @@
 class HistogramRenderer : public CanvasObject
 {
 public:
-    bool isActive;
     Int2 position;
     Int2 scale;
     Float3 backgroundColor;

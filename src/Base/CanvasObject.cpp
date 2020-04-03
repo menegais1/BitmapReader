@@ -18,17 +18,30 @@ void CanvasObject::render()
 
 void CanvasObject::setActive(bool isActive)
 {
+    lastActiveState = this->isActive;
     this->isActive = isActive;
 }
-bool CanvasObject::getActive(){
+bool CanvasObject::getActive()
+{
+    return this->isActive;
+}
+
+bool CanvasObject::checkIfCanExecuteCallback()
+{
+    if (lastActiveState != isActive)
+    {
+        bool tmp = lastActiveState;
+        lastActiveState = isActive;
+        return tmp;
+    }
     return this->isActive;
 }
 
 CanvasObject::CanvasObject()
 {
     objectId = GlobalManager::getInstance()->registerObject(this);
-    //std::cout << objectId << std::endl;
     isActive = true;
+    lastActiveState = true;
     position = {0, 0};
     scale = {1, 1};
 }

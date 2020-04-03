@@ -17,8 +17,6 @@ Button::Button(Float2 position, Float2 scale, Float3 backgroundColor, string tit
 }
 void Button::mouse(int button, int state, int wheel, int direction, int x, int y)
 {
-    if (!isActive)
-        return;
     if (button == MouseButton::Left && state == MouseState::Down)
     {
         if (isPointInsideBounds({x, y}, position, scale))

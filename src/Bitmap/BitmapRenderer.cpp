@@ -23,5 +23,4 @@ void BitmapRenderer::render()
 BitmapRenderer::BitmapRenderer(Bitmap *bitmap) : CanvasObject()
 {
     this->bitmap = bitmap;
-    this->isActive = true;
 }

@@ -5,8 +5,6 @@
 using namespace std;
 void HistogramRenderer::render()
 {
-    if (!isActive)
-        return;
     color(backgroundColor.x, backgroundColor.y, backgroundColor.z);
     rectFill(position.x, position.y, position.x + scale.x, position.y + scale.y);
     color(lineColor.x, lineColor.y, lineColor.z);
@@ -33,12 +31,11 @@ void HistogramRenderer::setHistogram(int *histogram)
         if (histogram[i] > greatest)
             greatest = histogram[i];
     }
-    cout << greatest << endl;
 }
 HistogramRenderer::HistogramRenderer(Int2 position, Int2 scale, Float3 backgroundColor, Float3 lineColor) : CanvasObject(), position(position),
                                                                                                             scale(scale),
                                                                                                             backgroundColor(backgroundColor),
                                                                                                             lineColor(lineColor)
 {
-    this->isActive = true;
+    histogram = nullptr;
 }

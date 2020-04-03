@@ -1,4 +1,5 @@
 #include "Panel.h"
+#include <iostream>
 
 Panel::Panel(std::vector<CanvasObject *> &children)
 {

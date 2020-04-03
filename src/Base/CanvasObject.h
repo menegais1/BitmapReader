@@ -17,9 +17,12 @@ public:
     CanvasObject();
     virtual void setActive(bool isActive);
     bool getActive();
-
+    bool checkIfCanExecuteCallback();
 protected:
     bool isActive;
     int objectId;
+
+private:
+    bool lastActiveState;
 };
 #endif

@@ -18,7 +18,7 @@ void GlobalManager::keyboard(int key)
 
     for (int i = 0; i < objects.size(); i++)
     {
-        if (!objects[i]->getActive())
+        if (!objects[i]->checkIfCanExecuteCallback())
             continue;
         objects[i]->keyboard(key);
     }
@@ -27,7 +27,7 @@ void GlobalManager::keyboardUp(int key)
 {
     for (int i = 0; i < objects.size(); i++)
     {
-        if (!objects[i]->getActive())
+        if (!objects[i]->checkIfCanExecuteCallback())
             continue;
         objects[i]->keyboardUp(key);
     }
@@ -36,17 +36,16 @@ void GlobalManager::mouse(int button, int state, int wheel, int direction, int x
 {
     for (int i = 0; i < objects.size(); i++)
     {
-        if (!objects[i]->getActive())
+        if (!objects[i]->checkIfCanExecuteCallback())
             continue;
         objects[i]->mouse(button, state, wheel, direction, x, y);
     }
 }
 void GlobalManager::render()
 {
-    std::cout << GlobalManager::objects.size() << std::endl;
     for (int i = 0; i < GlobalManager::objects.size(); i++)
     {
-        if (!objects[i]->getActive())
+        if (!objects[i]->checkIfCanExecuteCallback())
             continue;
         objects[i]->render();
     }
@@ -54,7 +53,6 @@ void GlobalManager::render()
 int GlobalManager::registerObject(CanvasObject *object)
 {
     objects.push_back(object);
-    std::cout << objects.size() << std::endl;
     return objects.size() - 1;
 }
 CanvasObject *GlobalManager::unregisterObject(int objectId)

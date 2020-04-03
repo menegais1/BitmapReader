@@ -11,7 +11,7 @@ BitmapReaderManager::BitmapReaderManager() : Panel()
     bitmap = new Bitmap("/home/menegais1/Documents/Projects/ComputerGraphics/Study/BitmapReader/src/Images/test.bmp");
     bitmapRenderer = new BitmapRenderer(bitmap);
     bitmapRenderer->position = {125, 300};
-    histogramPanel = new HistogramPanel();
+     histogramPanel = new HistogramPanel();
     histogramPanel->closePanel->addListener([this] {
         this->setActive(true);
     });
