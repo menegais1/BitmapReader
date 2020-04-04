@@ -20,6 +20,28 @@ void BitmapRenderer::render()
     }
 }
 
+void BitmapRenderer::mouse(int button, int state, int wheel, int direction, int x, int y)
+{
+    if (state != MouseState::None)
+    {
+        this->lastMouseState = state;
+        isDragging = false;
+    }
+
+    if (state == MouseState::None &&
+        this->lastMouseState == MouseState::Down &&
+        (isPointInsideBounds({x, y}, {position.x, position.y}, {bitmap->width, bitmap->height}) || isDragging) &&
+        direction != 0)
+    {
+        isDragging = true;
+
+        position.x += x - prevMousePosition.x;
+        position.y += y - prevMousePosition.y;
+    }
+
+    prevMousePosition = {x, y};
+}
+
 BitmapRenderer::BitmapRenderer(Bitmap *bitmap) : CanvasObject()
 {
     this->bitmap = bitmap;
