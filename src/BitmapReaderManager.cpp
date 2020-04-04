@@ -6,6 +6,7 @@
 #include "Panel/Panel.h"
 #include "Histogram/HistogramPanel.h"
 #include "Slider/Slider.h"
+#include "Label/Label.h"
 
 BitmapReaderManager::BitmapReaderManager() : Panel()
 {
@@ -18,6 +19,14 @@ BitmapReaderManager::BitmapReaderManager() : Panel()
         this->setActive(true);
     });
     initializeButtons();
+
+    Label *rotationLabel = new Label({130, 74}, {80, 10}, {1, 1, 1}, {0, 0, 0}, "Rotation");
+    Slider *rotationSlider = new Slider({130, 60}, {80, 10}, {1, 0, 0}, 10, {1, 1, 1});
+    rotationSlider->initializeSlider(0, M_PI, 100, 1.3);
+    rotationSlider->addOnValueChangedListener([*this](float curValue) {
+        this->bitmap->rotateImage(curValue);
+    });
+
     children.push_back(bitmapRenderer);
     children.push_back(grayscaleButton);
     children.push_back(rChannelButton);
@@ -25,16 +34,11 @@ BitmapReaderManager::BitmapReaderManager() : Panel()
     children.push_back(bChannelButton);
     children.push_back(flipXButton);
     children.push_back(flipYButton);
-    children.push_back(rotateButton);
     children.push_back(scaleButton);
     children.push_back(histogramButton);
     children.push_back(resetButton);
-
-    Slider *slider = new Slider({250, 20}, {40, 10}, {1, 0, 0}, 10, {1, 1, 1});
-    slider->initializeSlider(0, M_PI, 100, 1.3);
-    slider->addOnValueChangedListener([*this](float curValue) {
-        this->bitmap->rotateImage(curValue);
-    });
+    children.push_back(rotationLabel);
+    children.push_back(rotationSlider);
 }
 
 void BitmapReaderManager::initializeManagers()
@@ -60,8 +64,6 @@ void BitmapReaderManager::initializeButtons()
     flipXButton->addListener([*this] { this->bitmap->flipImageInX(); });
     flipYButton = new Button({230, 50}, {100, 30}, {1, 1, 1}, "Flip Y", {0, 0, 0});
     flipYButton->addListener([*this] { this->bitmap->flipImageInY(); });
-    rotateButton = new Button({120, 50}, {100, 30}, {1, 1, 1}, "Rotate 90", {0, 0, 0});
-    rotateButton->addListener([*this] { this->bitmap->rotateImage(M_PI / 2.0); });
     scaleButton = new Button({10, 50}, {100, 30}, {1, 1, 1}, "Scale 1/2", {0, 0, 0});
     scaleButton->addListener([*this] { this->bitmap->scaleImage(0.5); });
 

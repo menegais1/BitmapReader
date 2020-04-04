@@ -23,7 +23,7 @@
 	<vector>
 	"../Base/CanvasObject.h"
 
-1585973490 source:/home/menegais1/Documents/Projects/ComputerGraphics/Study/BitmapReader/src/Bitmap/Bitmap.cpp
+1586016122 source:/home/menegais1/Documents/Projects/ComputerGraphics/Study/BitmapReader/src/Bitmap/Bitmap.cpp
 	"Bitmap.h"
 	<string>
 	<fstream>
@@ -73,7 +73,7 @@
 1426372440 /home/menegais1/Documents/Projects/ComputerGraphics/Study/BitmapReader/include/GL/freeglut_ext.h
 	<stdarg.h>
 
-1585973439 source:/home/menegais1/Documents/Projects/ComputerGraphics/Study/BitmapReader/src/BitmapReaderManager.cpp
+1586016539 source:/home/menegais1/Documents/Projects/ComputerGraphics/Study/BitmapReader/src/BitmapReaderManager.cpp
 	"BitmapReaderManager.h"
 	"Button/Button.h"
 	<cmath>
@@ -82,6 +82,7 @@
 	"Panel/Panel.h"
 	"Histogram/HistogramPanel.h"
 	"Slider/Slider.h"
+	"Label/Label.h"
 
 1585921365 /home/menegais1/Documents/Projects/ComputerGraphics/Study/BitmapReader/src/BitmapReaderManager.h
 	"Button/Button.h"
@@ -162,7 +163,7 @@
 	"HistogramRenderer.h"
 	"../Button/Button.h"
 
-1585971293 source:/home/menegais1/Documents/Projects/ComputerGraphics/Study/BitmapReader/src/Slider/Slider.cpp
+1586016007 source:/home/menegais1/Documents/Projects/ComputerGraphics/Study/BitmapReader/src/Slider/Slider.cpp
 	"Slider.h"
 	"../Utilities.h"
 	"../Canvas/gl_canvas2d.h"
@@ -174,4 +175,13 @@
 	"../Utilities.h"
 	<functional>
 	<vector>
+
+1586014638 /home/menegais1/Documents/Projects/ComputerGraphics/Study/BitmapReader/src/Label/Label.h
+	"../Base/CanvasObject.h"
+	"string"
+
+1586014772 source:/home/menegais1/Documents/Projects/ComputerGraphics/Study/BitmapReader/src/Label/Label.cpp
+	"Label.h"
+	"string"
+	"../Canvas/gl_canvas2d.h"
 

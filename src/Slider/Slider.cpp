@@ -66,6 +66,10 @@ void Slider::mouse(int button, int state, int wheel, int direction, int x, int y
         {
             handlePosition.x += screenStep * direction;
             curValue += stepAmount * direction;
+            if (curValue < minValue)
+                curValue = minValue;
+            if (curValue > maxValue)
+                curValue = maxValue;
             notifyOnValueChangedListeners();
         }
     }
