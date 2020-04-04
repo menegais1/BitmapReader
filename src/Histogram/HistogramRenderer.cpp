@@ -8,16 +8,17 @@ void HistogramRenderer::render()
     color(backgroundColor.x, backgroundColor.y, backgroundColor.z);
     rectFill(position.x, position.y, position.x + scale.x, position.y + scale.y);
     color(lineColor.x, lineColor.y, lineColor.z);
-    line(position.x + 10, position.y + 10, position.x + 10, position.y + scale.y - 10);
-    line(position.x + 10, position.y + 10, position.x + scale.x - 10, position.y + 10);
+    line(position.x, position.y, position.x, position.y + scale.y - 10);
+    line(position.x, position.y, position.x + scale.x - 10, position.y);
 
     if (histogram != nullptr)
     {
 
         for (int i = 0; i < 256; i++)
         {
-            Int2 leftDownCorner = {(position.x + 10 + i), position.y + 10};
-            Int2 rightUpCorner = {(position.x + 10 + i + 1), (position.y + 10) + (histogram[i] / greatest) * scale.y};
+            color(lineColor.x * ((i/256.0) + 0.1) , lineColor.y *((i/256.0)+ 0.1), lineColor.z * ((i/256.0)+ 0.1));
+            Int2 leftDownCorner = {(position.x + 2 + i), position.y + 2};
+            Int2 rightUpCorner = {(position.x + 2 + i + 1), (position.y + 2) + (histogram[i] / greatest) * scale.y};
             rectFill(leftDownCorner.x, leftDownCorner.y, rightUpCorner.x, rightUpCorner.y);
         }
     }

@@ -76,7 +76,6 @@
 		<Unit filename="src/Slider/Slider.cpp" />
 		<Unit filename="src/Histogram/HistogramRenderer.cpp" />
 		<Unit filename="src/Histogram/HistogramPanel.cpp" />
-		<Unit filename="src/Histogram/Histogram.cpp" />
 		<Unit filename="src/Bitmap/Bitmap.cpp" />
 		<Unit filename="src/Bitmap/BitmapRenderer.cpp" />
 		<Unit filename="src/BitmapReaderManager.cpp" />

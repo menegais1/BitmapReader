@@ -10,10 +10,10 @@
 #include "Button/Button.h"
 #include "Histogram/HistogramRenderer.h"
 #include "BitmapReaderManager.h"
-
 #include "Managers/GlobalManager.h"
+
 using namespace std;
-int screenWidth = 500, screenHeight = 500;
+int screenWidth = 600, screenHeight = 600;
 
 BitmapReaderManager *manager = new BitmapReaderManager();
 

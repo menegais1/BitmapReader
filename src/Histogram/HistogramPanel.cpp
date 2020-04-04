@@ -15,10 +15,10 @@ HistogramPanel::HistogramPanel()
 
 void HistogramPanel::initialize()
 {
-    this->red = new HistogramRenderer({125, 400}, {270, 100}, {0, 0, 0}, {1, 0, 0});
-    this->green = new HistogramRenderer({125, 300}, {270, 100}, {0, 0, 0}, {0, 1, 0});
+    this->red = new HistogramRenderer({125, 420}, {270, 100}, {0, 0, 0}, {1, 0, 0});
+    this->green = new HistogramRenderer({125, 310}, {270, 100}, {0, 0, 0}, {0, 1, 0});
     this->blue = new HistogramRenderer({125, 200}, {270, 100}, {0, 0, 0}, {0, 0, 1});
-    this->grayscale = new HistogramRenderer({125, 100}, {270, 100}, {0, 0, 0}, {0.5, 0.5, 0.5});
+    this->grayscale = new HistogramRenderer({125, 90}, {270, 100}, {0, 0, 0}, {0.5, 0.5, 0.5});
     closePanel = new Button({250, 40}, {70, 30}, {1, 1, 1}, "Close", {0, 0, 0});
     closePanel->addListener([this] { this->setActive(false); });
     this->children.push_back(red);
