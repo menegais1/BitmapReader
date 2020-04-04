@@ -42,7 +42,7 @@ void mouse(int button, int state, int wheel, int direction, int x, int y)
 int main(void)
 {
    initCanvas(&screenWidth, &screenHeight, "BitmapReader");
-   BitmapReaderManager *manager = new BitmapReaderManager("./BitmapReader/src/Images/landscape.bmp");
+   BitmapReaderManager *manager = new BitmapReaderManager("./BitmapReader/src/Images/test.bmp");
 
    runCanvas();
 }

@@ -33,7 +33,9 @@ void Slider::render()
 }
 void Slider::mouse(int button, int state, int wheel, int direction, int x, int y)
 {
-    if (state != MouseState::None && button == MouseButton::Left)
+    bool isPointInside = isPointInsideBounds({x, y}, {handlePosition.x - handleSize, handlePosition.y - handleSize}, {handleSize * 2, handleSize * 2});
+    if ((state == MouseState::Down && button == MouseButton::Left && isPointInside) ||
+            state == MouseState::Up)
     {
         this->lastMouseState = state;
         isDragging = false;
@@ -47,7 +49,7 @@ void Slider::mouse(int button, int state, int wheel, int direction, int x, int y
 
     if (state == MouseState::None &&
         this->lastMouseState == MouseState::Down &&
-        (isPointInsideBounds({x, y}, {handlePosition.x - handleSize, handlePosition.y - handleSize}, {handleSize * 2, handleSize * 2}) || isDragging) &&
+        (isPointInside || isDragging) &&
         abs(x - handlePosition.x) > tolerance &&
         direction != 0)
     {
@@ -86,4 +88,10 @@ void Slider::notifyOnValueChangedListeners()
     {
         onValueChangedListeners[i](curValue);
     }
+}
+
+void Slider::setCurrentValue(float curValue)
+{
+    this->curValue = curValue;
+    this->handlePosition.x = (position.x + scale.x) - ((maxValue - curValue) / this->stepAmount) * screenStep;
 }

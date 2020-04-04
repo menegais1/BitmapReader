@@ -22,11 +22,12 @@ BitmapReaderManager::BitmapReaderManager(std::string fileName) : Panel()
     children.push_back(bChannelButton);
     children.push_back(flipXButton);
     children.push_back(flipYButton);
-    children.push_back(scaleButton);
     children.push_back(histogramButton);
     children.push_back(resetButton);
     children.push_back(rotationLabel);
     children.push_back(rotationSlider);
+    children.push_back(scaleLabel);
+    children.push_back(scaleSlider);
 }
 
 void BitmapReaderManager::initializeBitmap(std::string fileName)
@@ -81,17 +82,22 @@ void BitmapReaderManager::initializeButtons()
         this->bitmap->flipImageInY();
         this->bitmap->applyTransformations(true, true, true);
     });
-    scaleButton = new Button({10, 50}, {100, 30}, {1, 1, 1}, "Scale 1/2", {0, 0, 0});
-    scaleButton->addListener([*this] {
-        this->bitmap->scaleImage(0.5);
-        this->bitmap->applyTransformations(true, true, true);
-    });
 
     rotationLabel = new Label({130, 74}, {80, 10}, {1, 1, 1}, {0, 0, 0}, "Rotation");
     rotationSlider = new Slider({130, 60}, {80, 10}, {1, 0, 0}, 10, {1, 1, 1});
-    rotationSlider->initializeSlider(0, M_PI, 100, 1.3);
+    rotationSlider->initializeSlider(0.0, M_PI, 100, 1.3);
+    rotationSlider->setCurrentValue(0);
     rotationSlider->addOnValueChangedListener([*this](float curValue) {
         this->bitmap->nearestNeighbourRotation(curValue);
+        this->bitmap->applyTransformations(true, true, true);
+    });
+
+    scaleLabel = new Label({10, 74}, {80, 10}, {1, 1, 1}, {0, 0, 0}, "Scale");
+    scaleSlider = new Slider({10, 60}, {80, 10}, {1, 0, 0}, 10, {1, 1, 1});
+    scaleSlider->initializeSlider(1 / 32.0, 4, 20, 1.3);
+    scaleSlider->setCurrentValue(1.0);
+    scaleSlider->addOnValueChangedListener([*this](float curValue) {
+        this->bitmap->scaleImage(curValue);
         this->bitmap->applyTransformations(true, true, true);
     });
 
@@ -109,9 +115,12 @@ void BitmapReaderManager::initializeButtons()
         this->bitmap->resetImageToDefault();
         this->histogramPanel->setHistograms(red, green, blue, grayscale);
     });
+
     resetButton = new Button({120, 10}, {100, 30}, {1, 1, 1}, "Reset", {0, 0, 0});
     resetButton->addListener([*this] {
         this->bitmap->resetImageToDefault();
         this->bitmap->applyTransformations(false, true, false);
+        this->scaleSlider->setCurrentValue(1);
+        this->rotationSlider->setCurrentValue(0);
     });
 }

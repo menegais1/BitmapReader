@@ -23,7 +23,7 @@
 	<vector>
 	"../Base/CanvasObject.h"
 
-1586035800 source:/home/menegais1/Documents/Projects/ComputerGraphics/Study/BitmapReader/src/Bitmap/Bitmap.cpp
+1586037597 source:/home/menegais1/Documents/Projects/ComputerGraphics/Study/BitmapReader/src/Bitmap/Bitmap.cpp
 	"Bitmap.h"
 	<string>
 	<fstream>
@@ -74,7 +74,7 @@
 1426372440 /home/menegais1/Documents/Projects/ComputerGraphics/Study/BitmapReader/include/GL/freeglut_ext.h
 	<stdarg.h>
 
-1586035079 source:/home/menegais1/Documents/Projects/ComputerGraphics/Study/BitmapReader/src/BitmapReaderManager.cpp
+1586038922 source:/home/menegais1/Documents/Projects/ComputerGraphics/Study/BitmapReader/src/BitmapReaderManager.cpp
 	"BitmapReaderManager.h"
 	"Button/Button.h"
 	<cmath>
@@ -85,7 +85,7 @@
 	"Slider/Slider.h"
 	"Label/Label.h"
 
-1586033438 /home/menegais1/Documents/Projects/ComputerGraphics/Study/BitmapReader/src/BitmapReaderManager.h
+1586038891 /home/menegais1/Documents/Projects/ComputerGraphics/Study/BitmapReader/src/BitmapReaderManager.h
 	"Button/Button.h"
 	"Histogram/HistogramPanel.h"
 	"Bitmap/BitmapRenderer.h"
@@ -123,7 +123,7 @@
 	"../Canvas/gl_canvas2d.h"
 	<iostream>
 
-1586033092 source:/home/menegais1/Documents/Projects/ComputerGraphics/Study/BitmapReader/src/main.cpp
+1586038432 source:/home/menegais1/Documents/Projects/ComputerGraphics/Study/BitmapReader/src/main.cpp
 	<GL/glut.h>
 	<GL/freeglut_ext.h>
 	<string>
@@ -167,14 +167,14 @@
 	"HistogramRenderer.h"
 	"../Button/Button.h"
 
-1586026820 source:/home/menegais1/Documents/Projects/ComputerGraphics/Study/BitmapReader/src/Slider/Slider.cpp
+1586039145 source:/home/menegais1/Documents/Projects/ComputerGraphics/Study/BitmapReader/src/Slider/Slider.cpp
 	"Slider.h"
 	"../Utilities.h"
 	"../Canvas/gl_canvas2d.h"
 	<cstdlib>
 	<iostream>
 
-1586032168 /home/menegais1/Documents/Projects/ComputerGraphics/Study/BitmapReader/src/Slider/Slider.h
+1586038370 /home/menegais1/Documents/Projects/ComputerGraphics/Study/BitmapReader/src/Slider/Slider.h
 	"../Base/CanvasObject.h"
 	"../Utilities.h"
 	<functional>

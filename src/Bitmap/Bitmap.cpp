@@ -384,7 +384,6 @@ void Bitmap::applyTransformations(bool applyScale, bool applyRotation, bool appl
     if (applyRotation)
     {
         _nearestNeighbourRotation(lastRotation);
-        cout << lastRotation << endl;
     }
     if (applyFilters)
     {

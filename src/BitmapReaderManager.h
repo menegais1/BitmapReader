@@ -27,11 +27,12 @@ private:
     Button *bChannelButton;
     Button *flipXButton;
     Button *flipYButton;
-    Button *scaleButton;
     Button *resetButton;
     Button *histogramButton;
     Label *rotationLabel;
     Slider *rotationSlider;
+    Label *scaleLabel;
+    Slider *scaleSlider;
 
     void initializeBitmap(std::string fileName);
     void initializeButtons();
