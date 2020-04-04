@@ -1,3 +1,6 @@
+///Class responsible for rendering the bitmap, allow the bitmap to
+///be moved around the screen when holding and dragging the mouse on top of it
+
 #ifndef BITMAP_RENDERER_H
 #define BITMAP_RENDERER_H
 

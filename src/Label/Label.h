@@ -1,3 +1,5 @@
+///Class used to display a text label with background color
+
 #ifndef LABEL_H
 #define LABEL_H
 

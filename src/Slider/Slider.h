@@ -1,3 +1,10 @@
+///Class representing a horizontal only slider, as
+///Every other screen object, inherit the CanvasObject class
+///And has a set of callbacks that it can override to use.
+///It works by passing a minValue, a maxValue and the number
+///of steps to interpolate between them, the tolerance is used for 
+///How much the mouse needs to move in order for a value change to be detected 
+
 #ifndef SLIDER_H
 #define SLIDER_H
 

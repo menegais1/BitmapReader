@@ -8,27 +8,12 @@
 #include "Slider/Slider.h"
 #include "Label/Label.h"
 
-BitmapReaderManager::BitmapReaderManager() : Panel()
+BitmapReaderManager::BitmapReaderManager(std::string fileName) : Panel()
 {
 
-    bitmap = new Bitmap("./BitmapReader/src/Images//test_256.bmp");
-    this->bitmap->nearestNeighbourRotation(0);
-
-    bitmapRenderer = new BitmapRenderer(bitmap);
-    bitmapRenderer->position = {125, 300};
-    histogramPanel = new HistogramPanel();
-    histogramPanel->closePanel->addListener([this] {
-        this->setActive(true);
-    });
+    initializeBitmap(fileName);
+    initializeHistogram();
     initializeButtons();
-
-    Label *rotationLabel = new Label({130, 74}, {80, 10}, {1, 1, 1}, {0, 0, 0}, "Rotation");
-    Slider *rotationSlider = new Slider({130, 60}, {80, 10}, {1, 0, 0}, 10, {1, 1, 1});
-    rotationSlider->initializeSlider(0, M_PI, 100, 1.3);
-    rotationSlider->addOnValueChangedListener([*this](float curValue) {
-        this->bitmap->resetImage();
-        this->bitmap->nearestNeighbourRotation(curValue);
-    });
 
     children.push_back(bitmapRenderer);
     children.push_back(grayscaleButton);
@@ -44,12 +29,23 @@ BitmapReaderManager::BitmapReaderManager() : Panel()
     children.push_back(rotationSlider);
 }
 
-void BitmapReaderManager::initializeManagers()
+void BitmapReaderManager::initializeBitmap(std::string fileName)
 {
+    bitmap = new Bitmap(fileName);
+    this->bitmap->nearestNeighbourRotation(0);
+
+    bitmapRenderer = new BitmapRenderer(bitmap);
+    bitmapRenderer->position = {125, 300};
 }
-void BitmapReaderManager::initializeBitmap()
+void BitmapReaderManager::initializeHistogram()
 {
+
+    histogramPanel = new HistogramPanel();
+    histogramPanel->closePanel->addListener([this] {
+        this->setActive(true);
+    });
 }
+
 void BitmapReaderManager::initializeButtons()
 {
     //Color Buttons
@@ -70,10 +66,19 @@ void BitmapReaderManager::initializeButtons()
     scaleButton = new Button({10, 50}, {100, 30}, {1, 1, 1}, "Scale 1/2", {0, 0, 0});
     scaleButton->addListener([*this] { this->bitmap->scaleImage(0.5); });
 
+    rotationLabel = new Label({130, 74}, {80, 10}, {1, 1, 1}, {0, 0, 0}, "Rotation");
+    rotationSlider = new Slider({130, 60}, {80, 10}, {1, 0, 0}, 10, {1, 1, 1});
+    rotationSlider->initializeSlider(0, M_PI, 100, 1.3);
+    rotationSlider->addOnValueChangedListener([*this](float curValue) {
+        this->bitmap->resetImage();
+        this->bitmap->nearestNeighbourRotation(curValue);
+    });
+
     histogramButton = new Button({10, 10}, {100, 30}, {1, 1, 1}, "Histogram", {0, 0, 0});
     histogramButton->addListener([this] {
         this->setActive(false);
         this->histogramPanel->setActive(true);
+        this->bitmap->resetImage();
         int *red = this->bitmap->getHistogramForChannel(Channel::Red);
         int *green = this->bitmap->getHistogramForChannel(Channel::Green);
         int *blue = this->bitmap->getHistogramForChannel(Channel::Blue);
@@ -84,8 +89,4 @@ void BitmapReaderManager::initializeButtons()
     });
     resetButton = new Button({120, 10}, {100, 30}, {1, 1, 1}, "Reset", {0, 0, 0});
     resetButton->addListener([*this] { this->bitmap->resetImage(); });
-}
-
-void BitmapReaderManager::registerButton(Button *b)
-{
 }

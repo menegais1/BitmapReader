@@ -1,3 +1,17 @@
+///Class responsible for loading and manipulating the .bmp
+///It can load uncompressed .bmp of 1, 4, 8, 24 and 32 bits per pixel
+///Meaning that the .bmp may contain a color pallete.
+///The functions to manipulate the bitmap are:
+
+///Scale
+///Rotate - Nearest neighbour and default matrix rotation
+///Generate Histogram per Channel
+///Convert image to single channel
+///Convert image to grayscale based on luminância
+///Flip image in X plane
+///Flip image in Y plane
+///Reset image to default state - Image first load
+
 #ifndef BITMAP_H
 #define BITMAP_H
 
@@ -63,8 +77,8 @@ public:
     int width;
     int height;
     Bitmap(const std::string fileName);
-    Color getPixelColorAtPosition(const int l,const int c) const;
-    Float2 getPixelPositionOnScreen(const int l,const int c) const;
+    Color getPixelColorAtPosition(const int l, const int c) const;
+    Float2 getPixelPositionOnScreen(const int l, const int c) const;
     void flipImageInX();
     void flipImageInY();
     void rotateImage(const float angle);

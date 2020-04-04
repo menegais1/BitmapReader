@@ -1,3 +1,7 @@
+///Class responsible for rendering an histogram, it receives a int vector
+///And render the histogram in a bar graph, the color given will be interpolated
+///to give a smooth gradient for each histogram value
+
 #ifndef HISTOGRAM_RENDERER_H
 #define HISTOGRAM_RENDERER_H
 

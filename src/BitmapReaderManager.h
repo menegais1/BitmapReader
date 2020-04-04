@@ -1,3 +1,7 @@
+///Main program file, used to instantiate all screen elements,
+///register buttons callbacks, call bitmap manipulation functions and
+///load the bitmap file from the Images folder.
+
 #ifndef BITMAPREADERMANAGER_H
 #define BITMAPREADERMANAGER_H
 
@@ -5,10 +9,13 @@
 #include "Histogram/HistogramPanel.h"
 #include "Bitmap/BitmapRenderer.h"
 #include "Panel/Panel.h"
+#include "Slider/Slider.h"
+#include "Label/Label.h"
+#include <string>
 class BitmapReaderManager : public Panel
 {
 public:
-    BitmapReaderManager();
+    BitmapReaderManager(std::string fileName);
 
 private:
     Bitmap *bitmap;
@@ -20,14 +27,13 @@ private:
     Button *bChannelButton;
     Button *flipXButton;
     Button *flipYButton;
-    Button *rotateButton;
     Button *scaleButton;
     Button *resetButton;
     Button *histogramButton;
+    Label *rotationLabel;
+    Slider *rotationSlider;
 
-    void registerButton(Button *b);
-    void initializeManagers();
-    void initializeBitmap();
+    void initializeBitmap(std::string fileName);
     void initializeButtons();
     void initializeHistogram();
 };

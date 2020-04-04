@@ -1,3 +1,7 @@
+///The panel class is used for object agrupation and ease of
+///Activating and deactivating objects groups with the function setActive.
+///It contain a list of all registered objects.
+
 #ifndef PANEL_H
 #define PANEL_H
 

@@ -1,3 +1,7 @@
+/// Main class of the program, used for registering the callbacks
+/// in GLUT, initialize the window, call the GlobalManager functions
+/// and instantiate the program main manager
+
 #include <GL/glut.h>
 #include <GL/freeglut_ext.h> //callback da wheel do mouse.
 #include <string>
@@ -14,8 +18,6 @@
 
 using namespace std;
 int screenWidth = 600, screenHeight = 600;
-
-BitmapReaderManager *manager = new BitmapReaderManager();
 
 void render()
 {
@@ -40,6 +42,7 @@ void mouse(int button, int state, int wheel, int direction, int x, int y)
 int main(void)
 {
    initCanvas(&screenWidth, &screenHeight, "BitmapReader");
-  
+   BitmapReaderManager *manager = new BitmapReaderManager("./BitmapReader/src/Images/landscape.bmp");
+
    runCanvas();
 }

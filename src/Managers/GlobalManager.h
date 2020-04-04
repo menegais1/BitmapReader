@@ -1,3 +1,8 @@
+///Manager responsible for forwarding the GLUT callbacks
+///To every CanvasObject instantiated, every object has a uniqueId given
+///in the beggining of its lifetime
+
+
 #ifndef GLOBAL_MANAGER_H
 #define GLOBAL_MANAGER_H
 

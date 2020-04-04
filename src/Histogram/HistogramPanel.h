@@ -1,3 +1,6 @@
+///Inherit from the Panel class and is responsible for grouping the
+///histograms in a single object, as well as a button to deactivate this object
+
 #ifndef HISTOGRAM_PANEL_H
 #define HISTOGRAM_PANEL_H
 

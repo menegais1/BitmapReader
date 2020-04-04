@@ -1,3 +1,6 @@
+///Button class, responsible for rendering a button and ofering a callback list
+///That will call all registered functions when the button is clicked 
+
 #ifndef BUTTON_H
 #define BUTTON_H
 

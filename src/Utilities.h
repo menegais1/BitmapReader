@@ -1,3 +1,5 @@
+///Utilities file, has some common structs and functions used in the program
+
 #ifndef UTILITIES_H
 #define UTILITIES_H
 
