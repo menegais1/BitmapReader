@@ -1,17 +1,19 @@
 #include "BitmapReaderManager.h"
 #include "Button/Button.h"
 #include <cmath>
+#include <iostream>
 #include "Managers/GlobalManager.h"
 #include "Panel/Panel.h"
 #include "Histogram/HistogramPanel.h"
+#include "Slider/Slider.h"
 
 BitmapReaderManager::BitmapReaderManager() : Panel()
 {
 
-    bitmap = new Bitmap("/home/menegais1/Documents/Projects/ComputerGraphics/Study/BitmapReader/src/Images/test.bmp");
+    bitmap = new Bitmap("/home/menegais1/Documents/Projects/ComputerGraphics/Study/BitmapReader/src/Images/normal_1.bmp");
     bitmapRenderer = new BitmapRenderer(bitmap);
     bitmapRenderer->position = {125, 300};
-     histogramPanel = new HistogramPanel();
+    histogramPanel = new HistogramPanel();
     histogramPanel->closePanel->addListener([this] {
         this->setActive(true);
     });
@@ -27,6 +29,12 @@ BitmapReaderManager::BitmapReaderManager() : Panel()
     children.push_back(scaleButton);
     children.push_back(histogramButton);
     children.push_back(resetButton);
+
+    Slider *slider = new Slider({250, 20}, {40, 10}, {1, 0, 0}, 10, {1, 1, 1});
+    slider->initializeSlider(0, M_PI, 100, 1.3);
+    slider->addOnValueChangedListener([*this](float curValue) {
+        this->bitmap->rotateImage(curValue);
+    });
 }
 
 void BitmapReaderManager::initializeManagers()

@@ -61,6 +61,7 @@
 		<Unit filename="src/Managers/GlobalManager.h" />
 		<Unit filename="src/Button/Button.h" />
 		<Unit filename="src/Panel/Panel.h" />
+		<Unit filename="src/Slider/Slider.h" />
 		<Unit filename="src/Histogram/HistogramRenderer.h" />
 		<Unit filename="src/Histogram/HistogramPanel.h" />
 		<Unit filename="src/Bitmap/BitmapRenderer.h" />
@@ -70,6 +71,7 @@
 		<Unit filename="src/Managers/GlobalManager.cpp" />
 		<Unit filename="src/Button/Button.cpp" />
 		<Unit filename="src/Panel/Panel.cpp" />
+		<Unit filename="src/Slider/Slider.cpp" />
 		<Unit filename="src/Histogram/HistogramRenderer.cpp" />
 		<Unit filename="src/Histogram/HistogramPanel.cpp" />
 		<Unit filename="src/Histogram/Histogram.cpp" />

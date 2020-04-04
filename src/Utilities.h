@@ -21,7 +21,8 @@ enum MouseButton
 enum MouseState
 {
     Down = 0,
-    Up = 1
+    Up = 1,
+    None = -2
 };
 
 class Color

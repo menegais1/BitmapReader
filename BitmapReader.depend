@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1585937275 source:/home/menegais1/Documents/Projects/ComputerGraphics/Study/BitmapReader/src/Base/CanvasObject.cpp
+1585937626 source:/home/menegais1/Documents/Projects/ComputerGraphics/Study/BitmapReader/src/Base/CanvasObject.cpp
 	"CanvasObject.h"
 	"../Managers/GlobalManager.h"
 	"../Utilities.h"
@@ -17,13 +17,13 @@
 
 1585681483 /home/menegais1/Documents/Projects/ComputerGraphics/Study/BitmapReader/src/Base/IRender.h
 
-1585860465 /home/menegais1/Documents/Projects/ComputerGraphics/Study/BitmapReader/src/Utilities.h
+1585963678 /home/menegais1/Documents/Projects/ComputerGraphics/Study/BitmapReader/src/Utilities.h
 
 1585859495 /home/menegais1/Documents/Projects/ComputerGraphics/Study/BitmapReader/src/Managers/GlobalManager.h
 	<vector>
 	"../Base/CanvasObject.h"
 
-1585847195 source:/home/menegais1/Documents/Projects/ComputerGraphics/Study/BitmapReader/src/Bitmap/Bitmap.cpp
+1585973490 source:/home/menegais1/Documents/Projects/ComputerGraphics/Study/BitmapReader/src/Bitmap/Bitmap.cpp
 	"Bitmap.h"
 	<string>
 	<fstream>
@@ -73,13 +73,15 @@
 1426372440 /home/menegais1/Documents/Projects/ComputerGraphics/Study/BitmapReader/include/GL/freeglut_ext.h
 	<stdarg.h>
 
-1585937567 source:/home/menegais1/Documents/Projects/ComputerGraphics/Study/BitmapReader/src/BitmapReaderManager.cpp
+1585973439 source:/home/menegais1/Documents/Projects/ComputerGraphics/Study/BitmapReader/src/BitmapReaderManager.cpp
 	"BitmapReaderManager.h"
 	"Button/Button.h"
 	<cmath>
+	<iostream>
 	"Managers/GlobalManager.h"
 	"Panel/Panel.h"
 	"Histogram/HistogramPanel.h"
+	"Slider/Slider.h"
 
 1585921365 /home/menegais1/Documents/Projects/ComputerGraphics/Study/BitmapReader/src/BitmapReaderManager.h
 	"Button/Button.h"
@@ -97,7 +99,7 @@
 	"../Utilities.h"
 	"../Base/CanvasObject.h"
 
-1585935785 source:/home/menegais1/Documents/Projects/ComputerGraphics/Study/BitmapReader/src/Button/Button.cpp
+1585963733 source:/home/menegais1/Documents/Projects/ComputerGraphics/Study/BitmapReader/src/Button/Button.cpp
 	<vector>
 	<functional>
 	<iostream>
@@ -137,7 +139,7 @@
 	"GlobalManager.h"
 	<iostream>
 
-1585855606 source:/home/menegais1/Documents/Projects/ComputerGraphics/Study/BitmapReader/src/Utilities.cpp
+1585963671 source:/home/menegais1/Documents/Projects/ComputerGraphics/Study/BitmapReader/src/Utilities.cpp
 	"Utilities.h"
 
 1585921698 /home/menegais1/Documents/Projects/ComputerGraphics/Study/BitmapReader/src/Histogram/HistogramPanel.h
@@ -159,4 +161,17 @@
 	"HistogramPanel.h"
 	"HistogramRenderer.h"
 	"../Button/Button.h"
+
+1585971293 source:/home/menegais1/Documents/Projects/ComputerGraphics/Study/BitmapReader/src/Slider/Slider.cpp
+	"Slider.h"
+	"../Utilities.h"
+	"../Canvas/gl_canvas2d.h"
+	<cstdlib>
+	<iostream>
+
+1585973633 /home/menegais1/Documents/Projects/ComputerGraphics/Study/BitmapReader/src/Slider/Slider.h
+	"../Base/CanvasObject.h"
+	"../Utilities.h"
+	<functional>
+	<vector>
 

@@ -258,7 +258,7 @@ void Bitmap::flipImageInY()
 
 void Bitmap::rotateImage(const float angle)
 {
-    this->imageRotation += angle;
+    this->imageRotation = angle;
 }
 
 void Bitmap::convertImageToGrayScale()
