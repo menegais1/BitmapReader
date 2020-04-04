@@ -26,7 +26,8 @@ Bitmap::Bitmap(const string fileName)
     closeFile(file);
     width = bitmapHeader.BiWidth;
     height = bitmapHeader.BiHeight;
-
+    lastScale = 1;
+    lastRotation = 0;
     fileHeader.print();
     bitmapHeader.print();
 }
@@ -199,8 +200,13 @@ Float2 Bitmap::getPixelPositionOnScreen(const int l, const int c) const
 
 void Bitmap::scaleImage(const float scale)
 {
-    int oldHeight = this->height;
-    int oldWidth = this->width;
+    lastScale = scale;
+}
+
+void Bitmap::_scaleImage(const float scale)
+{
+    int oldHeight = this->bitmapHeader.BiHeight;
+    int oldWidth = this->bitmapHeader.BiWidth;
     this->height = oldHeight * scale;
     this->width = oldWidth * scale;
     Color *newBitmapArray = new Color[height * width];
@@ -211,7 +217,7 @@ void Bitmap::scaleImage(const float scale)
             int oldL = floor(l * (1 / scale));
             int oldC = floor(c * (1 / scale));
             int oldIdx = oldL * oldWidth + oldC;
-            Color color = bitmapArray[oldIdx];
+            Color color = originalBitmapArray[oldIdx];
 
             int idx = l * width + c;
             newBitmapArray[idx] = color;
@@ -224,9 +230,14 @@ void Bitmap::scaleImage(const float scale)
     }
 
     bitmapArray = newBitmapArray;
+    lastScale = scale;
 }
 
 void Bitmap::flipImageInX()
+{
+    filters.push_back(Filter::FlipX);
+}
+void Bitmap::_flipImageInX()
 {
     for (int l = 0; l < height; l++)
     {
@@ -242,6 +253,11 @@ void Bitmap::flipImageInX()
 }
 
 void Bitmap::flipImageInY()
+{
+    filters.push_back(Filter::FlipY);
+}
+
+void Bitmap::_flipImageInY()
 {
     for (int l = 0; l < height / 2; l++)
     {
@@ -260,8 +276,12 @@ void Bitmap::rotateImage(const float angle)
 {
     this->imageRotation = angle;
 }
-
 void Bitmap::nearestNeighbourRotation(const float angle)
+{
+    lastRotation = angle;
+}
+
+void Bitmap::_nearestNeighbourRotation(const float angle)
 {
 
     int diagonal = ceil(sqrt((width * width) + (height * height)));
@@ -295,9 +315,14 @@ void Bitmap::nearestNeighbourRotation(const float angle)
     width = diagonal;
     height = diagonal;
     bitmapArray = newBitmapArray;
+    lastRotation = angle;
+}
+void Bitmap::convertImageToGrayScale()
+{
+    filters.push_back(Filter::Greyscale);
 }
 
-void Bitmap::convertImageToGrayScale()
+void Bitmap::_convertImageToGrayScale()
 {
     for (int l = 0; l < height; l++)
     {
@@ -328,8 +353,17 @@ int *Bitmap::getHistogramForChannel(const Channel c) const
     }
     return histogram;
 }
-
 void Bitmap::convertToSingleChannel(const Channel c)
+{
+    if (c == Channel::Red)
+        filters.push_back(Filter::RedC);
+    if (c == Channel::Green)
+        filters.push_back(Filter::GreenC);
+    if (c == Channel::Blue)
+        filters.push_back(Filter::BlueC);
+}
+
+void Bitmap::_convertToSingleChannel(const Channel c)
 {
     for (int i = 0; i < width * height; i++)
     {
@@ -338,6 +372,38 @@ void Bitmap::convertToSingleChannel(const Channel c)
             if (c == curC)
                 continue;
             bitmapArray[i].value[curC] = 0;
+        }
+    }
+}
+
+void Bitmap::applyTransformations(bool applyScale, bool applyRotation, bool applyFilters)
+{
+    resetImage();
+    if (applyScale)
+        _scaleImage(lastScale);
+    if (applyRotation)
+    {
+        _nearestNeighbourRotation(lastRotation);
+        cout << lastRotation << endl;
+    }
+    if (applyFilters)
+    {
+        for (int i = 0; i < filters.size(); i++)
+        {
+            Filter f = filters[i];
+
+            if (f == Filter::FlipX)
+                _flipImageInX();
+            if (f == Filter::FlipY)
+                _flipImageInY();
+            if (f == Filter::Greyscale)
+                _convertImageToGrayScale();
+            if (f == Filter::RedC)
+                _convertToSingleChannel(Channel::Red);
+            if (f == Filter::GreenC)
+                _convertToSingleChannel(Channel::Green);
+            if (f == Filter::BlueC)
+                _convertToSingleChannel(Channel::Blue);
         }
     }
 }
@@ -354,5 +420,22 @@ void Bitmap::resetImage()
     memcpy(bitmapArray, originalBitmapArray, sizeof(Color) * bitmapHeader.BiHeight * bitmapHeader.BiWidth);
     this->height = bitmapHeader.BiHeight;
     this->width = bitmapHeader.BiWidth;
+}
+
+void Bitmap::resetImageToDefault()
+{
+    if (bitmapArray != NULL)
+    {
+        delete[] bitmapArray;
+        bitmapArray = NULL;
+    }
+
+    bitmapArray = new Color[bitmapHeader.BiHeight * bitmapHeader.BiWidth];
+    memcpy(bitmapArray, originalBitmapArray, sizeof(Color) * bitmapHeader.BiHeight * bitmapHeader.BiWidth);
+    this->height = bitmapHeader.BiHeight;
+    this->width = bitmapHeader.BiWidth;
     this->imageRotation = 0;
+    this->lastRotation = 0;
+    this->lastScale = 1;
+    this->filters.clear();
 }

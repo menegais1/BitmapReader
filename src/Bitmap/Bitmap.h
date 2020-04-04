@@ -16,6 +16,7 @@
 #define BITMAP_H
 
 #include <string>
+#include <vector>
 #include <fstream>
 #include <iostream>
 #include "../Utilities.h"
@@ -70,6 +71,16 @@ public:
     }
 };
 
+enum Filter
+{
+    FlipX,
+    FlipY,
+    Greyscale,
+    RedC,
+    GreenC,
+    BlueC
+};
+
 class Bitmap
 {
 public:
@@ -79,14 +90,19 @@ public:
     Bitmap(const std::string fileName);
     Color getPixelColorAtPosition(const int l, const int c) const;
     Float2 getPixelPositionOnScreen(const int l, const int c) const;
+
     void flipImageInX();
     void flipImageInY();
-    void rotateImage(const float angle);
-    void nearestNeighbourRotation(const float angle);
     void convertImageToGrayScale();
-    void scaleImage(const float scale);
-    void resetImage();
     void convertToSingleChannel(const Channel c);
+
+    void rotateImage(const float angle);
+
+    void nearestNeighbourRotation(const float angle);
+    void scaleImage(const float scale);
+
+    void applyTransformations(bool applyScale, bool applyRotation, bool applyFilters);
+    void resetImageToDefault();
     int *getHistogramForChannel(const Channel c) const;
 
 private:
@@ -97,6 +113,18 @@ private:
     Color *originalBitmapArray;
     bool colorPalleteExists;
     float imageRotation;
+
+    std::vector<Filter> filters;
+    float lastRotation;
+    float lastScale;
+    void _nearestNeighbourRotation(const float angle);
+    void _scaleImage(const float scale);
+    void _flipImageInX();
+    void _flipImageInY();
+    void _convertImageToGrayScale();
+    void _convertToSingleChannel(const Channel c);
+    void resetImage();
+
     void openFile(const std::string filename, std::fstream &file);
     void closeFile(std::fstream &file);
     void loadFileHeader(std::fstream &file);
