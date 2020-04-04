@@ -85,7 +85,7 @@ void BitmapReaderManager::initializeButtons()
 
     rotationLabel = new Label({130, 74}, {80, 10}, {1, 1, 1}, {0, 0, 0}, "Rotation");
     rotationSlider = new Slider({130, 60}, {80, 10}, {1, 0, 0}, 10, {1, 1, 1});
-    rotationSlider->initializeSlider(0.0, M_PI, 100, 1.3);
+    rotationSlider->initializeSlider(0.0, M_PI, 50, 1.3);
     rotationSlider->setCurrentValue(0);
     rotationSlider->addOnValueChangedListener([*this](float curValue) {
         this->bitmap->nearestNeighbourRotation(curValue);
@@ -94,7 +94,7 @@ void BitmapReaderManager::initializeButtons()
 
     scaleLabel = new Label({10, 74}, {80, 10}, {1, 1, 1}, {0, 0, 0}, "Scale");
     scaleSlider = new Slider({10, 60}, {80, 10}, {1, 0, 0}, 10, {1, 1, 1});
-    scaleSlider->initializeSlider(1 / 32.0, 4, 20, 1.3);
+    scaleSlider->initializeSlider(1 / 128.0, 2, 20, 1.3);
     scaleSlider->setCurrentValue(1.0);
     scaleSlider->addOnValueChangedListener([*this](float curValue) {
         this->bitmap->scaleImage(curValue);
@@ -113,6 +113,9 @@ void BitmapReaderManager::initializeButtons()
         this->bitmap->applyTransformations(false, false, true);
         int *grayscale = this->bitmap->getHistogramForChannel(Channel::Red);
         this->bitmap->resetImageToDefault();
+        this->bitmap->applyTransformations(false, true, false);
+        this->scaleSlider->setCurrentValue(1);
+        this->rotationSlider->setCurrentValue(0);
         this->histogramPanel->setHistograms(red, green, blue, grayscale);
     });
 
