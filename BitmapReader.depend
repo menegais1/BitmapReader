@@ -23,7 +23,7 @@
 	<vector>
 	"../Base/CanvasObject.h"
 
-1586022272 source:/home/menegais1/Documents/Projects/ComputerGraphics/Study/BitmapReader/src/Bitmap/Bitmap.cpp
+1586030217 source:/home/menegais1/Documents/Projects/ComputerGraphics/Study/BitmapReader/src/Bitmap/Bitmap.cpp
 	"Bitmap.h"
 	<string>
 	<fstream>
@@ -32,13 +32,13 @@
 	<cstring>
 	"../Utilities.h"
 
-1586022272 /home/menegais1/Documents/Projects/ComputerGraphics/Study/BitmapReader/src/Bitmap/Bitmap.h
+1586027309 /home/menegais1/Documents/Projects/ComputerGraphics/Study/BitmapReader/src/Bitmap/Bitmap.h
 	<string>
 	<fstream>
 	<iostream>
 	"../Utilities.h"
 
-1586022652 source:/home/menegais1/Documents/Projects/ComputerGraphics/Study/BitmapReader/src/Bitmap/BitmapRenderer.cpp
+1586026793 source:/home/menegais1/Documents/Projects/ComputerGraphics/Study/BitmapReader/src/Bitmap/BitmapRenderer.cpp
 	"BitmapRenderer.h"
 	"../Canvas/gl_canvas2d.h"
 	<iostream>
@@ -73,7 +73,7 @@
 1426372440 /home/menegais1/Documents/Projects/ComputerGraphics/Study/BitmapReader/include/GL/freeglut_ext.h
 	<stdarg.h>
 
-1586023961 source:/home/menegais1/Documents/Projects/ComputerGraphics/Study/BitmapReader/src/BitmapReaderManager.cpp
+1586030231 source:/home/menegais1/Documents/Projects/ComputerGraphics/Study/BitmapReader/src/BitmapReaderManager.cpp
 	"BitmapReaderManager.h"
 	"Button/Button.h"
 	<cmath>
@@ -113,7 +113,7 @@
 	"gl_canvas2d.h"
 	<GL/glut.h>
 
-1586023365 source:/home/menegais1/Documents/Projects/ComputerGraphics/Study/BitmapReader/src/Histogram/HistogramRenderer.cpp
+1586024067 source:/home/menegais1/Documents/Projects/ComputerGraphics/Study/BitmapReader/src/Histogram/HistogramRenderer.cpp
 	"HistogramRenderer.h"
 	"../Utilities.h"
 	"../Canvas/gl_canvas2d.h"
@@ -163,7 +163,7 @@
 	"HistogramRenderer.h"
 	"../Button/Button.h"
 
-1586016007 source:/home/menegais1/Documents/Projects/ComputerGraphics/Study/BitmapReader/src/Slider/Slider.cpp
+1586026820 source:/home/menegais1/Documents/Projects/ComputerGraphics/Study/BitmapReader/src/Slider/Slider.cpp
 	"Slider.h"
 	"../Utilities.h"
 	"../Canvas/gl_canvas2d.h"

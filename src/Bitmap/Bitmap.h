@@ -68,6 +68,7 @@ public:
     void flipImageInX();
     void flipImageInY();
     void rotateImage(const float angle);
+    void nearestNeighbourRotation(const float angle);
     void convertImageToGrayScale();
     void scaleImage(const float scale);
     void resetImage();

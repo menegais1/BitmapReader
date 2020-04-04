@@ -261,6 +261,42 @@ void Bitmap::rotateImage(const float angle)
     this->imageRotation = angle;
 }
 
+void Bitmap::nearestNeighbourRotation(const float angle)
+{
+
+    int diagonal = ceil(sqrt((width * width) + (height * height)));
+    Color *newBitmapArray = new Color[diagonal * diagonal];
+    for (int l = 0; l < diagonal; l++)
+    {
+        for (int c = 0; c < diagonal; c++)
+        {
+            float translatedC = c - diagonal / 2;
+            float translatedL = l - diagonal / 2;
+            float newC = (translatedC * cos(-angle) + translatedL * sin(-angle));
+            float newL = ((-translatedC * sin(-angle)) + translatedL * cos(-angle));
+            Float2 pos = {newC + width / 2, newL + height / 2};
+
+            int idx = l * diagonal + c;
+            Color color;
+            if (pos.x < 0 || pos.x >= width || pos.y < 0 || pos.y >= height)
+            {
+                color.value[0] = 0;
+                color.value[1] = 0;
+                color.value[2] = 0;
+                color.value[3] = 255;
+                newBitmapArray[idx] = color;
+                continue;
+            }
+            color = getPixelColorAtPosition(pos.y, pos.x);
+            newBitmapArray[idx] = color;
+        }
+    }
+    delete[] bitmapArray;
+    width = diagonal;
+    height = diagonal;
+    bitmapArray = newBitmapArray;
+}
+
 void Bitmap::convertImageToGrayScale()
 {
     for (int l = 0; l < height; l++)

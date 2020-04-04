@@ -22,7 +22,7 @@ void BitmapRenderer::render()
 
 void BitmapRenderer::mouse(int button, int state, int wheel, int direction, int x, int y)
 {
-    if (state != MouseState::None)
+    if (state != MouseState::None && button == MouseButton::Left)
     {
         this->lastMouseState = state;
         isDragging = false;
@@ -45,4 +45,5 @@ void BitmapRenderer::mouse(int button, int state, int wheel, int direction, int 
 BitmapRenderer::BitmapRenderer(Bitmap *bitmap) : CanvasObject()
 {
     this->bitmap = bitmap;
+    this->lastMouseState = MouseState::None;
 }

@@ -11,7 +11,9 @@
 BitmapReaderManager::BitmapReaderManager() : Panel()
 {
 
-    bitmap = new Bitmap("./BitmapReader/src/Images//landscape.bmp");
+    bitmap = new Bitmap("./BitmapReader/src/Images//test_256.bmp");
+    this->bitmap->nearestNeighbourRotation(0);
+
     bitmapRenderer = new BitmapRenderer(bitmap);
     bitmapRenderer->position = {125, 300};
     histogramPanel = new HistogramPanel();
@@ -24,7 +26,8 @@ BitmapReaderManager::BitmapReaderManager() : Panel()
     Slider *rotationSlider = new Slider({130, 60}, {80, 10}, {1, 0, 0}, 10, {1, 1, 1});
     rotationSlider->initializeSlider(0, M_PI, 100, 1.3);
     rotationSlider->addOnValueChangedListener([*this](float curValue) {
-        this->bitmap->rotateImage(curValue);
+        this->bitmap->resetImage();
+        this->bitmap->nearestNeighbourRotation(curValue);
     });
 
     children.push_back(bitmapRenderer);

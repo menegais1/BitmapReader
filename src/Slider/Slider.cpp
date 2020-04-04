@@ -33,7 +33,7 @@ void Slider::render()
 }
 void Slider::mouse(int button, int state, int wheel, int direction, int x, int y)
 {
-    if (state != MouseState::None)
+    if (state != MouseState::None && button == MouseButton::Left)
     {
         this->lastMouseState = state;
         isDragging = false;
